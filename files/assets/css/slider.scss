@@ -1,0 +1,99 @@
+.ce_sliderStart.slider-news {
+  position: relative;
+  width: 100%;
+  margin: 55px auto;
+  .content-slider {
+    width: 35%;
+    margin: 0 auto;
+    .slider-teaser {
+      h2 {
+        font: normal normal bold 30px/36px Open Sans;
+        color: #002D5C;
+        text-transform: uppercase;
+        border-top: 6px solid #002D5C;
+        border-bottom: 6px solid #002D5C;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        /*margin: 40px auto;*/
+      }
+      p {
+        font: normal normal normal 20px/24px Open Sans;
+        color: #002D5C;
+        padding-top: 20px;
+        a {
+          font: normal normal bold 25px/24px Open Sans;
+          color: #002D5C;
+          text-transform: uppercase;
+          text-decoration: none;
+          position: relative;
+          margin-left: 63px;
+          &:before {
+            background: url("/files/layout/Pfeil-blue-dark.svg") no-repeat;
+            position: absolute;
+            content: "";
+            top: 4px;
+            left: -63px;
+            width: 35px;
+            height: 35px;
+            background-size: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.slider-news .slider-control {
+  position: absolute;
+  transform: translateY(-50%);
+  width: 100%;
+  top: 50%;
+  .slider-prev {
+    left: -3%;
+    width: 45px;
+  }
+  .slider-next {
+    right: -3%;
+  }
+  .slider-prev, .slider-next {
+    .circle-bloc {
+      width: 200px;
+      height: 150px;
+      border-radius: 39%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #009EE3;
+      top: -44px;
+      position: relative;
+      .arrow-icon-left, .arrow-icon-right {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #009EE3;
+        box-shadow: 7px 7px 14px #007bb1, -7px -7px 14px #00c1ff;
+        transition: box-shadow 250ms;
+        img {
+          width: 50px;
+          transition: filter 250ms;
+          &:hover {
+            filter: invert(1);
+          }
+        }
+        &:hover {
+          box-shadow: inset -2px 3px 10px #00000040;
+        }
+      }
+    }
+  }
+  .arrow-icon-left {
+    transform: translateX(25%);
+  }
+  .arrow-icon-right {
+    transform: translateX(-25%);
+  }
+}
+

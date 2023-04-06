@@ -1,0 +1,394 @@
+body.livechat #main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.btn-secondary {
+  background-color: #002D5C !important;
+}
+
+.whatsapp {
+  width: 30px;
+}
+
+.whatsapp img {
+  filter: invert(13%) sepia(46%) saturate(3092%) hue-rotate(194deg) brightness(95%) contrast(103%);
+  transition: 0.4s;
+}
+
+.whatsapp:hover img {
+  filter: invert(48%) sepia(81%) saturate(3022%) hue-rotate(168deg) brightness(101%) contrast(85%);
+  transition: 0.4s;
+}
+
+.showroom_form_headline {
+  max-width: 400px;
+  display: flex;
+  justify-content: flex-start;
+  margin: 50px 0 40px 0;
+}
+
+.showroom_form_headline img {
+  margin: 0 20px 0 0;
+  width: 50px;
+}
+
+.showroom_form_headline h2 {
+  font-weight: 500;
+  line-height: 8px;
+  text-transform: unset;
+}
+
+.showroom_form_checkbox_wrapper fieldset {
+  max-width: 1200px;
+  margin: 0 auto 20px auto;
+}
+
+.showroom_form_checkbox_wrapper fieldset span {
+  position: relative;
+  display: inline-block;
+  width: 33%;
+  margin: 0 0 15px 0;
+}
+
+.showroom_form_checkbox_wrapper fieldset label {
+  display: flex;
+  min-height: 52px;
+  flex-wrap: wrap;
+}
+
+.showroom_form_checkbox_wrapper fieldset input[type="checkbox"]+label span {
+  border-radius: 50%;
+  margin: 3px 10px 0 0 !important;
+}
+
+label p.check_text {
+  font: unset !important;
+  font-weight: unset !important;
+  max-width: 267px !important;
+}
+
+#main .ce_form input.text,
+#main .ce_form textarea,
+#main .ce_form select,
+#main .ce_form input.captcha {
+  background-color: rgba(0, 47, 135, 0.1);
+}
+
+#main .ce_form .formbody .datenschutz input[type="checkbox"] {
+  display: unset !important;
+}
+
+.submenu {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.submenu .box {
+  width: 280px;
+  padding: 5px;
+}
+
+.submenu .box a {
+  color: #002D5C;
+  display: block;
+  margin: 0 0 20px 0;
+  font-size: 1.1rem;
+}
+
+.submenu .box a img {
+  width: 50px;
+}
+
+.submenu .box a span {
+  width: 210px;
+  float: right;
+  height: 45px;
+  display: grid;
+  align-items: center;
+  line-height: 22px;
+}
+
+.submenu .box a.effect:hover {
+  color: #009FE3;
+}
+
+.submenu .box a.effect:hover img {
+  filter: invert(43%) sepia(74%) saturate(4052%) hue-rotate(173deg) brightness(104%) contrast(104%);
+}
+
+.active_icon {
+  filter: invert(43%) sepia(74%) saturate(4052%) hue-rotate(173deg) brightness(104%) contrast(104%);
+}
+
+#main .showroom_slider {
+  max-width: 1050px !important;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+#main .showroom_slider .slider-control {
+  top: 365px;
+  width: calc(100% - 11px);
+  transform: translateX(-75px);
+  z-index: 9;
+}
+
+#main .showroom_slider .slider-control .slider-menu {
+  display: unset;
+  top: 332px;
+}
+
+#main .showroom_slider .slider-control .slider-menu {
+  font-size: 34px;
+}
+
+#main .showroom_slider .slider-control .slider-menu b {
+  color: #96dbff;
+  width: 15px;
+  display: inline-block;
+}
+
+#main .showroom_slider .slider-control .slider-menu b.active {
+  color: #002D5C;
+}
+
+#find-checkbox,
+.find-checkbox {
+  grid-column: 1;
+  grid-row: 5;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#find-checkbox h1,
+#find-checkbox h2,
+#find-checkbox h3,
+#find-checkbox h4,
+#find-checkbox h5,
+#find-checkbox h6,
+.find-checkbox h1,
+.find-checkbox h2,
+.find-checkbox h3,
+.find-checkbox h4,
+.find-checkbox h5,
+.find-checkbox h6 {
+  display: none;
+}
+
+#find-checkbox form,
+#find-checkbox .formbody,
+.find-checkbox form,
+.find-checkbox .formbody {
+  height: 60px;
+  margin: 0;
+}
+
+#find-checkbox .showroom_datenblatt-anfordern,
+.find-checkbox .showroom_datenblatt-anfordern {
+  margin-top: unset !important;
+}
+
+#main .slider_content_wrapper .accordion.ui-accordion-content {
+  max-width: unset;
+}
+
+#main .slider_content_wrapper .ce_form .submit_container:before {
+  margin-right: unset;
+  background-image: unset;
+  background-position: unset;
+  text-transform: none;
+  content: unset;
+  width: unset;
+  height: unset;
+  background-size: unset;
+  display: unset;
+  vertical-align: unset;
+  -moz-transform: unset;
+  -ms-transform: unset;
+  -o-transform: unset;
+  -webkit-transform: unset;
+}
+
+#main .slider_content_wrapper .submit_container {
+  height: 50px;
+}
+
+#main .slider_content_wrapper .description_large_content .ui-accordion-content div:nth-child(1) {
+  grid-template-rows: 272px 40px 420px 40px 75px;
+}
+
+#main .slider_content_wrapper .ce_accordion {
+  background: linear-gradient(to right, #00254b 0%, #009ee3 100%);
+}
+
+#main .slider_content_wrapper .ce_accordion .showroom_datenblatt-anfordern {
+  width: 250px;
+  height: 50px;
+}
+
+#main .slider_content_wrapper .ui-accordion-content div:nth-child(1) {
+  display: grid;
+  grid-template-columns: 50% 10% 40%;
+  grid-template-rows: 272px 40px 272px 40px 75px;
+}
+
+#main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .specs {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+#main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .specs table tr {
+  display: block;
+  width: 500px;
+}
+
+#main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .specs table td:first-child {
+  width: 200px;
+}
+
+#main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .specs p {
+  color: white;
+  line-height: 1.3em;
+}
+
+#main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .description {
+  grid-row: 3;
+  grid-column: 1;
+}
+
+#main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .description p,
+#main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .description h3 {
+  color: white;
+}
+
+#main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .description ul {
+  color: white;
+  font-size: 1.4em;
+}
+
+#main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .image_1 {
+  grid-row: 1;
+  grid-column: 3;
+}
+
+#main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .image_1 img {
+  width: 80%;
+  float: right;
+}
+
+#main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .image_2 {
+  grid-row: 3;
+  grid-column: 3;
+}
+
+#main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .image_2 img {
+  width: 80%;
+  float: right;
+}
+
+#main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .ce_downloads {
+  grid-column: 1;
+  grid-row: 5;
+  margin: 0;
+  padding: 0;
+}
+
+#main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .ce_downloads a {
+  color: white;
+  height: 55px;
+  width: 220px;
+  background-color: #026fe3;
+  border-radius: 4px;
+  display: inline-block;
+  text-align: center;
+  font-size: 1.5em;
+  line-height: 3;
+  transition: 0.4s;
+}
+
+#main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .ce_downloads a:hover {
+  background-color: #009ee3;
+  transition: 0.4s;
+}
+
+#main .slider_content_wrapper .toggler {
+  color: white;
+  background-image: url("../../layout/acc_plus_white.svg");
+  border-bottom: unset;
+}
+
+#main .slider_content_wrapper .toggler.active {
+  background-image: url("../../layout/acc_minus.svg");
+}
+
+.cc h2 {
+  margin-left: unset !important;
+  margin-right: unset !important;
+}
+
+@media screen and (max-width: 1125px) {
+  .submenu{
+    justify-content: center;
+  }
+
+  .submenu strong{
+    width: 100%;
+    display: inline-block;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .showroom_form_checkbox_wrapper span {
+    width: 100%;
+  }
+
+  #main .showroom_slider {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  #main .showroom_slider .slider-control {
+    transform: unset;
+    width: 100%;
+    top: 120px;
+    opacity: 0.2;
+  }
+
+  #main .showroom_slider .slider-control .slider-menu {
+    display: none !important;
+  }
+
+  #main .showroom_slider .image_1,
+  #main .showroom_slider .image_2 {
+    display: none;
+  }
+
+  #main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .description {
+    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  #main .slider_content_wrapper .ui-accordion-content div:nth-child(1) {
+    grid-template-rows: 200px 40px 200px 40px 75px;
+  }
+
+  #main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .ce_downloads a {
+    line-height: 3.7;
+  }
+
+  .cc-revoke.cc-bottom {
+    display: none;
+  }
+
+  #main .slider_content_wrapper .ui-accordion-content div:nth-child(1) .specs table td:first-child {
+    width: 118px;
+  }
+}
+
+/*# sourceMappingURL=style.min.css.map */

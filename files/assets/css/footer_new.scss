@@ -1,0 +1,131 @@
+#footer {
+  background: #002D5C;
+  mix-blend-mode: multiply;
+}
+
+.footer {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+  .footer-top  {
+    text-align: center;
+    .header-teaser.block {
+      font: italic lighter normal 30px/27px Open Sans;
+      transform: translateY(40px);
+      p {
+        color: white;
+        display: inline-block;
+        position: relative;
+        &:before, &:after {
+          content: "";
+          top: 28px;
+          width: 87%;
+          position: absolute;
+          border-bottom: 2px solid white;
+        }
+        &:before {
+          margin-right: 15px;
+          right: 100%;
+        }
+        &:after {
+          margin-left: 15px;
+          left: 100%;
+        }
+      }
+    }
+  }
+}
+
+.footer .footer-middle {
+  margin: 85px auto;
+  .header-logo {
+    text-align: center;
+    img {
+      height: auto;
+      width: 200px;
+    }
+  }
+  .footer-teaser.block {
+    justify-content: center;
+    display: flex;
+    margin-top: 50px;
+    p {
+      font: normal normal normal 20px/24px Open Sans;
+      color: white;
+    }
+  }
+}
+
+.footer .footer-bottom {
+  .footer-nav {
+    border-bottom: 6px solid white;
+    width: 80%;
+    margin: 15px auto;
+    padding-bottom: 40px;
+    .invisible {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    ul {
+      display: flex;
+      justify-content: space-evenly;
+      font: normal normal bold 20px/24px Open Sans;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      width: 55%;
+      margin: 0 auto;
+      li {
+        text-align: center;
+        font: normal normal bold 20px/24px Open Sans;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        padding-right: 15px;
+        border-right: 2px solid #fff;
+        margin-right: 15px;
+        a {
+          text-decoration: none;
+          color: #FFFFFF;
+          transition: color 250ms;
+          &:hover {
+            color: #009EE3;
+          }
+        }
+        &:last-child {
+          border-right: 0 solid #fff;
+        }
+        strong {
+          transition: opacity 250ms;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer .footer-social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  padding: 50px 0;
+  .icon {
+    width: 76px;
+    text-align: center;
+    a {
+      transition: flter 250ms;
+      &:hover {
+        filter: brightness(0.6);
+      }
+    }
+   img {
+     width: 40px;
+   }
+  }
+}

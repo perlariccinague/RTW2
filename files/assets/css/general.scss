@@ -1,0 +1,89 @@
+@import "header";
+@import "main";
+@import "footer";
+@import "form";
+@import "fonts";
+
+a,
+body,
+div,
+em,
+input,
+label,
+li,
+ol,
+p,
+select,
+span,
+strong,
+td,
+th,
+textarea,
+u,
+ul {
+  font-family:'Open Sans',sans-serif;
+}
+h1 {
+  text-align:center;
+  border-bottom:1px solid #009ee3;
+  font:2.5em 'Open Sans',sans-serif;
+  color:#002d5d;
+  text-transform:uppercase;
+  font-weight: 800;
+  padding-bottom: 13px;
+  margin-bottom: 50px;
+}
+
+h1 em {
+  font-weight:normal;
+  text-transform:none;
+  font-style: normal !important;
+}
+h4 {
+  text-align:center;
+  border-bottom:1px solid #009ee3;
+  font:2.5em 'Open Sans',sans-serif;
+  color:#002d5d;
+  text-transform:uppercase;
+  font-weight: 800;
+  padding-bottom: 13px;
+  margin-bottom: 50px;
+}
+h2 {
+  font:1.5em 'Open Sans',sans-serif;
+  color:#002d5d;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-weight: 800;
+}
+
+h3 {
+  font:1.5em 'Open Sans',sans-serif;
+  color:#455a86;
+  letter-spacing:0;
+  font-weight: 800;
+}
+
+html {
+  margin: 0;
+  min-height: 100%;
+}
+body {
+  min-height:100%;
+  margin:0;
+  padding:0;
+  overflow-y: scroll;
+}
+
+@media screen and (max-width: 950px) {
+  body {
+    font-size: 65%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  body {
+    font-size: 60%;
+  }
+}
+
