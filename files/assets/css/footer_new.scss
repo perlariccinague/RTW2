@@ -45,13 +45,17 @@
       width: 200px;
     }
   }
-  .footer-teaser.block {
+  .footer-teaser {
     justify-content: center;
     display: flex;
     margin-top: 50px;
     p {
       font: normal normal normal 20px/24px Open Sans;
       color: white;
+      text-transform: uppercase;
+      span {
+        font-weight: bold;
+      }
     }
   }
 }

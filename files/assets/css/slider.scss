@@ -27,6 +27,7 @@
           text-decoration: none;
           position: relative;
           margin-left: 63px;
+          transition: color 250ms;
           &:before {
             background: url("/files/layout/Pfeil-blue-dark.svg") no-repeat;
             position: absolute;
@@ -36,6 +37,9 @@
             width: 35px;
             height: 35px;
             background-size: 30px;
+          }
+          &:hover {
+            color:#52D2F6;
           }
         }
       }
@@ -74,7 +78,7 @@
         justify-content: center;
         align-items: center;
         background: #009EE3;
-        box-shadow: 7px 7px 14px #007bb1, -7px -7px 14px #00c1ff;
+        box-shadow: inset 0 0 0 #00c1ff, 7px 7px 14px #007bb1, -7px -7px 14px #00c1ff;
         transition: box-shadow 250ms;
         img {
           width: 50px;
