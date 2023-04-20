@@ -101,3 +101,33 @@
   }
 }
 
+.ce_sliderStart.slider-image {
+  position: relative;
+  width: 100%;
+  .slider-wrapper img {
+    height: 75vh;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.slider-image .slider-control {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transition: filter 250ms;
+   .slider-prev {
+     left: 3%;
+     width: 45px;
+   }
+  .slider-next {
+    right: 3%;
+    width: 45px;
+  }
+  a {
+    transition: filter 250ms;
+    &:hover {
+      filter: invert(45%) sepia(78%) saturate(1624%) hue-rotate(166deg) brightness(92%) contrast(102%);
+    }
+  }
+}

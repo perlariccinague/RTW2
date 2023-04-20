@@ -404,7 +404,8 @@
     background-color: #002D5C;
     color: white;
     text-align: center;
-    transform: rotate3d(0,1,0,90deg) translateY(-190px);
+    transform: rotate3d(0, 1, 0, 90deg) translateY(-175px) translateZ(95px) translateX(-4px);
+    position: absolute;
      h3 {
        text-transform: uppercase;
        font: normal normal normal 13px/14px Open Sans;
@@ -416,6 +417,45 @@
   }
   &:hover {
     transform: rotate3d(0,1,0,-90deg)
+  }
+}
+
+.training-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  transform: translateY(-2px);
+  .teaser-blue {
+    float: left;
+    overflow: hidden;
+    width: 50%;
+    position: relative;
+    &.dark {
+      background-color: #00305dd6;;
+    }
+    &.hell {
+      background-color: #00c1ff;
+    }
+    p {
+      text-align: center;
+      font: normal normal bold 60px/24px Open Sans;
+      margin-bottom: 0;
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        color: white;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 250ms, color 250ms ;
+
+        &:hover {
+         color: #001F3F;
+          background-color: #ffffffd9;
+        }
+      }
+    }
   }
 }
 
