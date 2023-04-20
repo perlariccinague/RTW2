@@ -1,0 +1,7 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+
+  <ul><li> <a href="<?= $this->href ?>" title="<?= $this->title ?>"><?= $this->link ?> </a></li></ul>
+
+<?php $this->endblock(); ?>

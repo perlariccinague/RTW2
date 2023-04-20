@@ -1,0 +1,60 @@
+
+<script src="<?= $this->asset('js/jquery-ui.min.js', 'contao-components/jquery-ui') ?>"></script>
+<script>
+  jQuery(function($) {
+    $(document).accordion({
+      // Put custom options here
+      heightStyle: 'content',
+      header: '.toggler',
+      collapsible: true,
+      active: false,
+      create: function(event, ui) {
+        ui.header.addClass('active');
+        $('.toggler').attr('tabindex', 0);
+      },
+      activate: function(event, ui) {
+        ui.newHeader.addClass('active');
+        ui.oldHeader.removeClass('active');
+        $('.toggler').attr('tabindex', 0);
+        
+        
+          /** Scroll active accordion to top */
+          if(ui.newHeader.length > 0) {
+            $('html, body').animate({scrollTop: ui.newHeader.offset().top - ui.newHeader.outerHeight()}, 200);
+          }
+        
+      }
+    });
+  
+  
+   var targetToggler = $(document.location.hash).closest('.ce_accordion').find('.toggler');
+
+      if(targetToggler.length) {
+        $(document).accordion('option', 'active', $('.toggler').index(targetToggler));
+      }
+      /** On page load - END */
+
+
+      /**
+       * On link click
+       *
+       * Scroll to an accordion and open it if a link hash matches an ID within an accordion
+       */
+      $('a').each(function() {
+        var hash = $(this).prop('hash');
+
+        if(hash) {
+          var targetToggler = $(hash).closest('.ce_accordion').find('.toggler');
+
+          if(targetToggler.length) {
+            $(this).click(function() {
+              $(document).accordion('option', 'active', $('.toggler').index(targetToggler));
+            });
+          }
+        }
+      });
+      /** On link click - END */
+    });
+
+  
+</script>

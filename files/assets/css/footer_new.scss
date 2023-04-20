@@ -119,7 +119,7 @@
   justify-content: center;
   margin-top: 12px;
   padding: 50px 0;
-  .icon {
+  .icon, .icon1 {
     width: 76px;
     text-align: center;
     a {
@@ -132,4 +132,8 @@
      width: 40px;
    }
   }
+}
+
+.footer .footer-social-icons .icon1 img {
+  width: 30px;
 }

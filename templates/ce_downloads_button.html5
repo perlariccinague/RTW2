@@ -1,0 +1,10 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+
+
+    <?php foreach ($this->files as $file): ?>
+      <a href="<?= $file['href'] ?>" title="<?= $file['title'] ?>">Datenblatt anfordern</a>
+    <?php endforeach; ?>
+
+<?php $this->endblock(); ?>

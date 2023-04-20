@@ -1,0 +1,130 @@
+.mobile_menu {
+  .inner {
+    background: #143F6D;
+    .header .header-bottom {
+      transform: translateY(0%);
+      margin-top: 75px;
+      max-width: 1045px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
+
+.header .header-bottom {
+  .menu-close {
+   background-color: white;
+    transition: opacity 250ms;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.menu-list {
+  margin: 50px auto;
+  width: 90%;
+  max-width: 1045px;
+  .menu-top {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto 100px;
+  }
+}
+
+.navigation-left, .navigation-middle,
+.navigation-right {
+  width: 30%;
+  h2 {
+    font: normal normal bold 30px/36px Open Sans;
+    color: white;
+    text-transform: uppercase;
+    border-bottom: 4px solid white;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+  .invisible {
+    display: none;
+  }
+  ul {
+    font: normal normal normal 20px/24px Open Sans;
+    li {
+      text-transform: uppercase;
+      margin: 10px auto;
+      a {
+        color: white;
+        text-decoration: none;
+        outline: none;
+        position: relative;
+        margin-left: 16px;
+        &:before {
+          color: #009EE3;
+          font-weight: 400;
+          content: "»";
+          position: absolute;
+          margin-left: -18px;
+          font-size: 22px;
+          margin-top: -1px;
+        }
+      }
+    }
+  }
+}
+
+.menu-bottom {
+  .footer-social-icons {
+    display: flex;
+    justify-content: center;
+    border-top: 4px solid white;
+    padding-top: 30px;
+    .icon, .icon1 {
+      width: 80px;
+      text-align: center;
+      a {
+        transition: opacity 250ms;
+        &:hover {
+          opacity: 0.5;
+        }
+        img {
+          width: 40px;
+        }
+      }
+    }
+  }
+}
+
+.menu-bottom .footer-social-icons .icon1 a {
+  img {
+    width: 30px;
+  }
+}
+
+.inner .header .header-bottom .mod_form.block {
+  position: relative;
+  #form-search {
+    margin-bottom: 0;
+    .search_input {
+      input {
+        border-radius: 50px;
+        border: 0;
+        background-color: #ffffffd1;
+        color: #002d5d;
+        outline: 0;
+        width: 150px;
+        font-size: 16px;
+        padding: 6px 10px;
+        text-transform: uppercase;
+      }
+    }
+    .widget-submit.search {
+      input {
+        position: absolute;
+        right: 15px;
+        top: 5px;
+        width: 24px;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,11 @@
+
+<div class="<?= $this->class ?>">
+
+<a href="<?= $this->href ?>" title="<?= $this->title ?>"><?= $this->link ?>
+  <?php if ($this->context): ?>
+    <p class="context"><?= $this->context ?></p>
+  <?php endif; ?>
+  
+  </a>
+
+</div>

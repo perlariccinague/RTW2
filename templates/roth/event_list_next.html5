@@ -1,0 +1,5 @@
+<div class="ce_text linkbox dark block">
+<p><img src="files/layout/icon_glocke.svg" alt="" width="127" height="167"></p>
+<h2>Save the date –<br><?= $this->title ?></h2>
+<p><a title="<?= $this->title ?>" href="<?= $this->href ?>">Weiterlesen</a></p>
+</div>

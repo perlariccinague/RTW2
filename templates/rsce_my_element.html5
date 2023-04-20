@@ -1,0 +1,8 @@
+<section class="<?php echo $this->class ?> block"<?php echo $this->cssID ?>>
+    <header>
+        <<?php echo $this->hl ?>>
+        <?php echo $this->headline ?>
+    </<?php echo $this->hl ?>>
+    </header>
+    <?php echo $this->text ?>
+</section>

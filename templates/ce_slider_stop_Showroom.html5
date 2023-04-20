@@ -1,0 +1,11 @@
+
+    </div>
+  </div>
+
+  <nav class="slider-control">
+    <a href="#" id="costum_prev" class="slider-prev"><?= $this->previous ?></a>
+    <span class="slider-menu"></span>
+    <a href="#" id="costum_next" class="slider-next"><?= $this->next ?></a>
+  </nav>
+
+</div>

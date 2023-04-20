@@ -1,0 +1,11 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+
+  <ul>
+    <?php foreach ($this->files as $file): ?>
+      <li><a href="<?= $file['href'] ?>" title="<?= $file['title'] ?>"><?= $file['link'] ?> </a></li>
+    <?php endforeach; ?>
+  </ul>
+
+<?php $this->endblock(); ?>

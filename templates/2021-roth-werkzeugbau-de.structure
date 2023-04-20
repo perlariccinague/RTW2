@@ -1,0 +1,1866 @@
+#================================================================================
+# Contao-Website   : 2021.roth-werkzeugbau.de
+# Contao-Database  : dbs1668989
+# Saved by User    : kkadmin (Klapproth + Koch)
+# Time stamp       : 2021-03-26 at 15:48:35
+#
+# Contao Extension : BackupDbBundle, Version 1.4.2
+# Copyright        : Softleister (www.softleister.de)
+# Licence          : LGPL
+#
+# Visit https://github.com/do-while/contao-BackupDB for more information
+#
+#-----------------------------------------------------
+# If you save the backup in ZIP file, a file restoreSymlinks.php
+# is also in the ZIP. See the file for more information
+#-----------------------------------------------------
+# Contao Version 4.9.13
+# The following packages must be installed:
+#
+#   - codefog/contao-mobile_menu : 2.7.1
+#   - contao/conflicts : dev-main
+#   - jrgregory/m17-sticky-backend-footer : 2.0.9
+#   - terminal42/contao-changelanguage : 3.1.16
+#   - terminal42/contao-pageimage : 4.0.1
+#
+#================================================================================
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+#---------------------------------------------------------
+# Table structure for table 'tl_article'
+#---------------------------------------------------------
+CREATE TABLE `tl_article` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `sorting` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `title` varchar(255) NOT NULL default '',
+  `alias` varchar(255) COLLATE utf8mb4_bin NOT NULL default '',
+  `author` int(10) unsigned NOT NULL default '0',
+  `inColumn` varchar(32) NOT NULL default 'main',
+  `keywords` mediumtext NULL,
+  `showTeaser` char(1) NOT NULL default '',
+  `teaserCssID` varchar(255) NOT NULL default '',
+  `teaser` mediumtext NULL,
+  `printable` varchar(255) NOT NULL default '',
+  `customTpl` varchar(64) NOT NULL default '',
+  `protected` char(1) NOT NULL default '',
+  `groups` blob NULL,
+  `guests` char(1) NOT NULL default '',
+  `cssID` varchar(255) NOT NULL default '',
+  `space` varchar(64) NOT NULL default '',
+  `published` char(1) NOT NULL default '',
+  `start` varchar(10) NOT NULL default '',
+  `stop` varchar(10) NOT NULL default '',
+  `languageMain` int(10) unsigned NOT NULL default '0',
+  `tags` char(1) NOT NULL default '',
+  `tags_showtags` char(1) NOT NULL default '',
+  `tags_max_tags` smallint(5) unsigned NOT NULL default '0',
+  `tags_relevance` char(1) NOT NULL default '',
+  `tags_jumpto` smallint(5) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`id`),
+  KEY `alias` (`alias`),
+  KEY `pid_start_stop_published_sorting` (`pid`, `start`, `stop`, `published`, `sorting`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=257;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_calendar'
+#---------------------------------------------------------
+CREATE TABLE `tl_calendar` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `title` varchar(255) NOT NULL default '',
+  `jumpTo` int(10) unsigned NOT NULL default '0',
+  `protected` char(1) NOT NULL default '',
+  `groups` blob NULL,
+  `allowComments` char(1) NOT NULL default '',
+  `notify` varchar(32) NOT NULL default 'notify_admin',
+  `sortOrder` varchar(32) NOT NULL default 'ascending',
+  `perPage` smallint(5) unsigned NOT NULL default '0',
+  `moderate` char(1) NOT NULL default '',
+  `bbcode` char(1) NOT NULL default '',
+  `requireLogin` char(1) NOT NULL default '',
+  `disableCaptcha` char(1) NOT NULL default '',
+  `master` int(10) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=3;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_calendar_events'
+#---------------------------------------------------------
+CREATE TABLE `tl_calendar_events` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `title` varchar(255) NOT NULL default '',
+  `alias` varchar(255) COLLATE utf8mb4_bin NOT NULL default '',
+  `author` int(10) unsigned NOT NULL default '0',
+  `addTime` char(1) NOT NULL default '',
+  `startTime` int(11) NULL,
+  `endTime` int(11) NULL,
+  `startDate` int(10) unsigned NULL,
+  `endDate` int(10) unsigned NULL,
+  `location` varchar(255) NOT NULL default '',
+  `teaser` mediumtext NULL,
+  `addImage` char(1) NOT NULL default '',
+  `singleSRC` binary(16) NULL,
+  `alt` varchar(255) NOT NULL default '',
+  `size` varchar(64) NOT NULL default '',
+  `imagemargin` varchar(128) NOT NULL default '',
+  `imageUrl` varchar(255) NOT NULL default '',
+  `fullsize` char(1) NOT NULL default '',
+  `caption` varchar(255) NOT NULL default '',
+  `floating` varchar(32) NOT NULL default 'above',
+  `recurring` char(1) NOT NULL default '',
+  `repeatEach` varchar(64) NOT NULL default '',
+  `repeatEnd` int(10) unsigned NOT NULL default '0',
+  `recurrences` smallint(5) unsigned NOT NULL default '0',
+  `addEnclosure` char(1) NOT NULL default '',
+  `enclosure` blob NULL,
+  `source` varchar(32) NOT NULL default 'default',
+  `jumpTo` int(10) unsigned NOT NULL default '0',
+  `articleId` int(10) unsigned NOT NULL default '0',
+  `url` varchar(255) NOT NULL default '',
+  `target` char(1) NOT NULL default '',
+  `cssClass` varchar(255) NOT NULL default '',
+  `noComments` char(1) NOT NULL default '',
+  `published` char(1) NOT NULL default '',
+  `start` varchar(10) NOT NULL default '',
+  `stop` varchar(10) NOT NULL default '',
+  `languageMain` int(10) unsigned NOT NULL default '0',
+  `tags` char(1) NOT NULL default '',
+  `overwriteMeta` char(1) NOT NULL default '',
+  `orderEnclosure` blob NULL,
+  `imageTitle` varchar(255) NOT NULL default '',
+  `address` varchar(255) NOT NULL default '',
+  `description` text NULL,
+  `pageTitle` varchar(255) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `alias` (`alias`),
+  KEY `pid_start_stop_published` (`pid`, `start`, `stop`, `published`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=61;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_calendar_feed'
+#---------------------------------------------------------
+CREATE TABLE `tl_calendar_feed` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `title` varchar(255) NOT NULL default '',
+  `alias` varchar(255) COLLATE utf8mb4_bin NOT NULL default '',
+  `language` varchar(32) NOT NULL default '',
+  `calendars` blob NULL,
+  `format` varchar(32) NOT NULL default 'rss',
+  `source` varchar(32) NOT NULL default 'source_teaser',
+  `maxItems` smallint(5) unsigned NOT NULL default '25',
+  `feedBase` varchar(255) NOT NULL default '',
+  `description` mediumtext NULL,
+  PRIMARY KEY  (`id`),
+  KEY `alias` (`alias`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_comments'
+#---------------------------------------------------------
+CREATE TABLE `tl_comments` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `source` varchar(32) NOT NULL default '',
+  `parent` int(10) unsigned NOT NULL default '0',
+  `date` varchar(64) NOT NULL default '',
+  `name` varchar(64) NOT NULL default '',
+  `email` varchar(255) NOT NULL default '',
+  `website` varchar(128) NOT NULL default '',
+  `comment` mediumtext NULL,
+  `addReply` char(1) NOT NULL default '',
+  `author` int(10) unsigned NOT NULL default '0',
+  `reply` mediumtext NULL,
+  `published` char(1) NOT NULL default '',
+  `ip` varchar(64) NOT NULL default '',
+  `notified` char(1) NOT NULL default '',
+  `notifiedReply` char(1) NOT NULL default '',
+  `member` int(10) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`id`),
+  KEY `published` (`published`),
+  KEY `source_parent_published` (`source`, `parent`, `published`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_comments_notify'
+#---------------------------------------------------------
+CREATE TABLE `tl_comments_notify` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `source` varchar(32) NOT NULL default '',
+  `parent` int(10) unsigned NOT NULL default '0',
+  `name` varchar(128) NOT NULL default '',
+  `email` varchar(255) NOT NULL default '',
+  `url` varchar(255) NOT NULL default '',
+  `addedOn` varchar(10) NOT NULL default '',
+  `ip` varchar(64) NOT NULL default '',
+  `tokenConfirm` varchar(32) NOT NULL default '',
+  `tokenRemove` varchar(32) NOT NULL default '',
+  `active` char(1) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `source_parent_active` (`source`, `parent`, `active`),
+  KEY `tokenremove` (`tokenRemove`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_content'
+#---------------------------------------------------------
+CREATE TABLE `tl_content` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `ptable` varchar(64) NOT NULL default '',
+  `sorting` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `type` varchar(64) NOT NULL default 'text',
+  `headline` varchar(255) NOT NULL default 'a:2:{s:5:"value";s:0:"";s:4:"unit";s:2:"h2";}',
+  `text` longtext NULL,
+  `addImage` char(1) NOT NULL default '',
+  `singleSRC` binary(16) NULL,
+  `alt` varchar(255) NOT NULL default '',
+  `imageTitle` varchar(255) NOT NULL default '',
+  `size` varchar(255) NOT NULL default '',
+  `imagemargin` varchar(128) NOT NULL default '',
+  `imageUrl` varchar(255) NOT NULL default '',
+  `fullsize` char(1) NOT NULL default '',
+  `caption` varchar(255) NOT NULL default '',
+  `floating` varchar(32) NOT NULL default 'above',
+  `html` longtext NULL,
+  `listtype` varchar(32) NOT NULL default '',
+  `listitems` blob NULL,
+  `tableitems` mediumblob NULL,
+  `summary` varchar(255) NOT NULL default '',
+  `thead` char(1) NOT NULL default '',
+  `tfoot` char(1) NOT NULL default '',
+  `tleft` char(1) NOT NULL default '',
+  `sortable` char(1) NOT NULL default '',
+  `sortIndex` smallint(5) unsigned NOT NULL default '0',
+  `sortOrder` varchar(32) NOT NULL default 'ascending',
+  `mooHeadline` varchar(255) NOT NULL default '',
+  `mooStyle` varchar(255) NOT NULL default '',
+  `mooClasses` varchar(255) NOT NULL default '',
+  `highlight` varchar(32) NOT NULL default '',
+  `shClass` varchar(255) NOT NULL default '',
+  `code` mediumtext NULL,
+  `url` varchar(255) NOT NULL default '',
+  `target` char(1) NOT NULL default '',
+  `titleText` varchar(255) NOT NULL default '',
+  `linkTitle` varchar(255) NOT NULL default '',
+  `embed` varchar(255) NOT NULL default '',
+  `rel` varchar(64) NOT NULL default '',
+  `useImage` char(1) NOT NULL default '',
+  `multiSRC` blob NULL,
+  `orderSRC` blob NULL,
+  `useHomeDir` char(1) NOT NULL default '',
+  `perRow` smallint(5) unsigned NOT NULL default '4',
+  `perPage` smallint(5) unsigned NOT NULL default '0',
+  `numberOfItems` smallint(5) unsigned NOT NULL default '0',
+  `sortBy` varchar(32) NOT NULL default '',
+  `metaIgnore` char(1) NOT NULL default '',
+  `galleryTpl` varchar(64) NOT NULL default '',
+  `customTpl` varchar(64) NOT NULL default '',
+  `playerSRC` blob NULL,
+  `youtube` varchar(16) NOT NULL default '',
+  `posterSRC` binary(16) NULL,
+  `playerSize` varchar(64) NOT NULL default '',
+  `autoplay` char(1) NOT NULL default '',
+  `sliderDelay` int(10) unsigned NOT NULL default '0',
+  `sliderSpeed` int(10) unsigned NOT NULL default '300',
+  `sliderStartSlide` smallint(5) unsigned NOT NULL default '0',
+  `sliderContinuous` char(1) NOT NULL default '',
+  `cteAlias` int(10) unsigned NOT NULL default '0',
+  `articleAlias` int(10) unsigned NOT NULL default '0',
+  `article` int(10) unsigned NOT NULL default '0',
+  `form` int(10) unsigned NOT NULL default '0',
+  `module` int(10) unsigned NOT NULL default '0',
+  `protected` char(1) NOT NULL default '',
+  `groups` blob NULL,
+  `guests` char(1) NOT NULL default '',
+  `cssID` varchar(255) NOT NULL default '',
+  `space` varchar(64) NOT NULL default '',
+  `invisible` char(1) NOT NULL default '',
+  `start` varchar(10) NOT NULL default '',
+  `stop` varchar(10) NOT NULL default '',
+  `com_order` varchar(32) NOT NULL default 'ascending',
+  `com_perPage` smallint(5) unsigned NOT NULL default '0',
+  `com_moderate` char(1) NOT NULL default '',
+  `com_bbcode` char(1) NOT NULL default '',
+  `com_disableCaptcha` char(1) NOT NULL default '',
+  `com_requireLogin` char(1) NOT NULL default '',
+  `com_template` varchar(64) NOT NULL default '',
+  `galerie` int(10) unsigned NOT NULL default '0',
+  `imagesFolder` blob NULL,
+  `dk_cfsMultiSRC` blob NULL,
+  `dk_cfsSortBy` varchar(32) NOT NULL default '',
+  `dk_cfsImageSize` varchar(64) NOT NULL default '',
+  `dk_cfsFullsize` char(1) NOT NULL default '',
+  `dk_cfsNumberOfItems` smallint(5) unsigned NOT NULL default '0',
+  `dk_cfsUseThumbnails` char(1) NOT NULL default '',
+  `dk_cfsThumbnailsVisibleSelect` varchar(32) NOT NULL default '',
+  `dk_cfsThumbnailSize` varchar(64) NOT NULL default '',
+  `dk_cfsThumbnailsVisible` smallint(5) unsigned NOT NULL default '5',
+  `dk_cfsThumbnailsPosition` varchar(32) NOT NULL default '',
+  `dk_cfsThumbnailsAlign` varchar(32) NOT NULL default '',
+  `dk_cfsThumbnailsWidth` varchar(64) NOT NULL default '',
+  `dk_cfsThumbnailsHeight` varchar(64) NOT NULL default '',
+  `dk_cfsCarouFredSel` varchar(255) NOT NULL default '',
+  `dk_cfsSynchronise` varchar(255) NOT NULL default '',
+  `dk_cfsHtmlTpl` varchar(255) NOT NULL default '',
+  `dk_cfsCssTpl` varchar(255) NOT NULL default '',
+  `dk_cfsJsTpl` varchar(255) NOT NULL default '',
+  `dk_cfsGalleryTpl` varchar(255) NOT NULL default '',
+  `tagsonly` char(1) NOT NULL default '',
+  `tags` char(1) NOT NULL default '',
+  `tag_filter` varchar(1000) NOT NULL default '',
+  `tag_ignore` char(1) NOT NULL default '',
+  `overwriteMeta` char(1) NOT NULL default '',
+  `youtubeOptions` mediumtext NULL,
+  `youtubeStart` int(10) unsigned NOT NULL default '0',
+  `youtubeStop` int(10) unsigned NOT NULL default '0',
+  `overwriteLink` char(1) NOT NULL default '',
+  `playerOptions` mediumtext NULL,
+  `vimeoOptions` mediumtext NULL,
+  `playerStart` int(10) unsigned NOT NULL default '0',
+  `playerStop` int(10) unsigned NOT NULL default '0',
+  `playerColor` varchar(64) NOT NULL default '',
+  `playerPreload` varchar(8) NOT NULL default '',
+  `splashImage` char(1) NOT NULL default '',
+  `playerAspect` varchar(8) NOT NULL default '',
+  `playerCaption` varchar(255) NOT NULL default '',
+  `vimeo` varchar(16) NOT NULL default '',
+  `inline` char(1) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `pid_ptable_invisible_sorting` (`pid`, `ptable`, `invisible`, `sorting`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=4487;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_crawl_queue'
+#---------------------------------------------------------
+CREATE TABLE `tl_crawl_queue` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `job_id` char(128) NOT NULL,
+  `uri` longtext NOT NULL,
+  `uri_hash` char(40) NOT NULL,
+  `found_on` longtext NULL,
+  `level` smallint(6) NOT NULL,
+  `processed` tinyint(1) NOT NULL,
+  `tags` longtext NULL,
+  PRIMARY KEY  (`id`),
+  KEY `job_id` (`job_id`),
+  KEY `uri_hash` (`uri_hash`),
+  KEY `processed` (`processed`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_cron'
+#---------------------------------------------------------
+CREATE TABLE `tl_cron` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `name` varchar(32) COLLATE utf8_general_ci NULL,
+  `value` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=7;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_cron_job'
+#---------------------------------------------------------
+CREATE TABLE `tl_cron_job` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `name` varchar(255) NOT NULL,
+  `lastRun` datetime NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=6;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_dk_caroufredsel'
+#---------------------------------------------------------
+CREATE TABLE `tl_dk_caroufredsel` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `title` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
+  `usePlay` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `carouselType` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  `direction` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  `scrollItems` smallint(5) unsigned NOT NULL default '0',
+  `scrollQueue` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  `autoPlay` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `autoTimeoutDuration` int(10) NOT NULL default '2500',
+  `autoDelay` int(10) NOT NULL default '0',
+  `scrollPauseOnHover` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  `autoProgress` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  `autoProgressInterval` int(10) NOT NULL default '50',
+  `useTransitions` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `scrollFx` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  `scrollEasing` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  `scrollDuration` int(10) NOT NULL default '500',
+  `useGeneralSize` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `widthSelect` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  `width` varchar(64) COLLATE utf8_general_ci NOT NULL default '',
+  `heightSelect` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  `height` varchar(64) COLLATE utf8_general_ci NOT NULL default '',
+  `padding` varchar(128) COLLATE utf8_general_ci NOT NULL default '',
+  `align` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  `useItemsSize` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `itemsWidthSelect` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  `itemsWidth` varchar(64) COLLATE utf8_general_ci NOT NULL default '',
+  `itemsHeightSelect` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  `itemsHeight` varchar(64) COLLATE utf8_general_ci NOT NULL default '',
+  `useItemsGeneral` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `responsive` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `cookie` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `itemsVisibleSelect` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  `itemsVisible` smallint(5) unsigned NOT NULL default '0',
+  `itemsVisibleMin` smallint(5) unsigned NOT NULL default '0',
+  `itemsVisibleMax` smallint(5) unsigned NOT NULL default '0',
+  `itemsStart` smallint(5) NOT NULL default '0',
+  `itemsStartRnd` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `useNavigation` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `prevKey` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  `nextKey` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  `swipeOnTouch` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `swipeOnMouse` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `mousewheel` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `navigation` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `autoButton` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `pagination` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `paginationKeys` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=3;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_extension'
+#---------------------------------------------------------
+CREATE TABLE `tl_extension` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `title` varchar(64) COLLATE utf8_general_ci NOT NULL default '',
+  `folder` varchar(48) COLLATE utf8_general_ci NOT NULL default '',
+  `author` varchar(128) COLLATE utf8_general_ci NOT NULL default '',
+  `copyright` varchar(128) COLLATE utf8_general_ci NOT NULL default '',
+  `package` varchar(64) COLLATE utf8_general_ci NOT NULL default '',
+  `license` varchar(64) COLLATE utf8_general_ci NOT NULL default '',
+  `addBeMod` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `beClasses` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
+  `beTables` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
+  `beTemplates` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
+  `addFeMod` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `feClasses` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
+  `feTables` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
+  `feTemplates` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
+  `addLanguage` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `languages` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_faq'
+#---------------------------------------------------------
+CREATE TABLE `tl_faq` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `sorting` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `question` varchar(255) NOT NULL default '',
+  `alias` varchar(255) COLLATE utf8mb4_bin NOT NULL default '',
+  `author` int(10) unsigned NOT NULL default '0',
+  `answer` mediumtext NULL,
+  `addImage` char(1) NOT NULL default '',
+  `singleSRC` binary(16) NULL,
+  `alt` varchar(255) NOT NULL default '',
+  `size` varchar(64) NOT NULL default '',
+  `imagemargin` varchar(128) NOT NULL default '',
+  `imageUrl` varchar(255) NOT NULL default '',
+  `fullsize` char(1) NOT NULL default '',
+  `caption` varchar(255) NOT NULL default '',
+  `floating` varchar(12) NOT NULL default 'above',
+  `addEnclosure` char(1) NOT NULL default '',
+  `enclosure` blob NULL,
+  `noComments` char(1) NOT NULL default '',
+  `published` char(1) NOT NULL default '',
+  `languageMain` int(10) unsigned NOT NULL default '0',
+  `overwriteMeta` char(1) NOT NULL default '',
+  `orderEnclosure` blob NULL,
+  `imageTitle` varchar(255) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `pid_published_sorting` (`pid`, `published`, `sorting`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_faq_category'
+#---------------------------------------------------------
+CREATE TABLE `tl_faq_category` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `title` varchar(255) NOT NULL default '',
+  `headline` varchar(255) NOT NULL default '',
+  `jumpTo` int(10) unsigned NOT NULL default '0',
+  `allowComments` char(1) NOT NULL default '',
+  `notify` varchar(16) NOT NULL default 'notify_admin',
+  `sortOrder` varchar(12) NOT NULL default 'ascending',
+  `perPage` smallint(5) unsigned NOT NULL default '0',
+  `moderate` char(1) NOT NULL default '',
+  `bbcode` char(1) NOT NULL default '',
+  `requireLogin` char(1) NOT NULL default '',
+  `disableCaptcha` char(1) NOT NULL default '',
+  `master` int(10) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_files'
+#---------------------------------------------------------
+CREATE TABLE `tl_files` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` binary(16) NULL,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `uuid` binary(16) NULL,
+  `type` varchar(16) NOT NULL default '',
+  `path` varchar(1022) COLLATE utf8mb4_bin NOT NULL default '',
+  `extension` varchar(16) COLLATE utf8mb4_bin NOT NULL default '',
+  `hash` varchar(32) NOT NULL default '',
+  `found` char(1) NOT NULL default '1',
+  `name` varchar(255) COLLATE utf8mb4_bin NOT NULL default '',
+  `importantPartX` double unsigned NOT NULL default '0',
+  `importantPartY` double unsigned NOT NULL default '0',
+  `importantPartWidth` double unsigned NOT NULL default '0',
+  `importantPartHeight` double unsigned NOT NULL default '0',
+  `meta` blob NULL,
+  `tags` char(1) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `uuid` (`uuid`),
+  KEY `path` (`path`(768)),
+  KEY `pid` (`pid`),
+  KEY `extension` (`extension`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=922;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_form'
+#---------------------------------------------------------
+CREATE TABLE `tl_form` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `title` varchar(255) NOT NULL default '',
+  `alias` varchar(255) COLLATE utf8mb4_bin NOT NULL default '',
+  `jumpTo` int(10) unsigned NOT NULL default '0',
+  `sendViaEmail` char(1) NOT NULL default '',
+  `recipient` varchar(1022) NOT NULL default '',
+  `subject` varchar(255) NOT NULL default '',
+  `format` varchar(12) NOT NULL default 'raw',
+  `skipEmpty` char(1) NOT NULL default '',
+  `storeValues` char(1) NOT NULL default '',
+  `targetTable` varchar(64) NOT NULL default '',
+  `method` varchar(12) NOT NULL default 'POST',
+  `novalidate` char(1) NOT NULL default '',
+  `attributes` varchar(255) NOT NULL default '',
+  `formID` varchar(64) NOT NULL default '',
+  `tableless` char(1) NOT NULL default '',
+  `allowTags` char(1) NOT NULL default '',
+  `customTpl` varchar(64) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `alias` (`alias`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=13;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_form_field'
+#---------------------------------------------------------
+CREATE TABLE `tl_form_field` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `sorting` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `invisible` char(1) NOT NULL default '',
+  `type` varchar(64) NOT NULL default 'text',
+  `name` varchar(64) NOT NULL default '',
+  `label` varchar(255) NOT NULL default '',
+  `text` mediumtext NULL,
+  `html` mediumtext NULL,
+  `options` blob NULL,
+  `mandatory` char(1) NOT NULL default '',
+  `rgxp` varchar(32) NOT NULL default '',
+  `placeholder` varchar(255) NOT NULL default '',
+  `minlength` int(10) unsigned NOT NULL default '0',
+  `maxlength` int(10) unsigned NOT NULL default '0',
+  `size` varchar(255) NOT NULL default 'a:2:{i:0;i:4;i:1;i:40;}',
+  `multiple` char(1) NOT NULL default '',
+  `mSize` smallint(5) unsigned NOT NULL default '0',
+  `extensions` varchar(255) NOT NULL default 'jpg,jpeg,gif,png,pdf,doc,docx,xls,xlsx,ppt,pptx',
+  `storeFile` char(1) NOT NULL default '',
+  `uploadFolder` binary(16) NULL,
+  `useHomeDir` char(1) NOT NULL default '',
+  `doNotOverwrite` char(1) NOT NULL default '',
+  `fsType` varchar(32) NOT NULL default '',
+  `class` varchar(255) NOT NULL default '',
+  `value` varchar(255) NOT NULL default '',
+  `accesskey` char(1) NOT NULL default '',
+  `tabindex` smallint(5) unsigned NOT NULL default '0',
+  `fSize` smallint(5) unsigned NOT NULL default '0',
+  `customTpl` varchar(64) NOT NULL default '',
+  `addSubmit` char(1) NOT NULL default '',
+  `slabel` varchar(255) NOT NULL default '',
+  `imageSubmit` char(1) NOT NULL default '',
+  `singleSRC` binary(16) NULL,
+  `step` varchar(10) NOT NULL default '',
+  `maxval` varchar(10) NOT NULL default '',
+  `minval` varchar(10) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `pid_invisible_sorting` (`pid`, `invisible`, `sorting`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=118;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_galerie'
+#---------------------------------------------------------
+CREATE TABLE `tl_galerie` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `published` char(1) NOT NULL default '',
+  `title` varchar(255) NOT NULL default '',
+  `alias` varchar(128) NOT NULL default '',
+  `themesSRC` binary(16) NULL,
+  `width` varchar(32) NOT NULL default 'auto',
+  `height` double unsigned NOT NULL default '0',
+  `transition` varchar(32) NOT NULL default '',
+  `fullscreenTransition` varchar(32) NOT NULL default '',
+  `touchTransition` varchar(32) NOT NULL default '',
+  `initialTransition` varchar(32) NOT NULL default '',
+  `transitionSpeed` int(10) unsigned NOT NULL default '0',
+  `clicknext` char(1) NOT NULL default '',
+  `gShow` int(10) unsigned NOT NULL default '0',
+  `showInfo` char(1) NOT NULL default '',
+  `showImagenav` char(1) NOT NULL default '',
+  `showCounter` char(1) NOT NULL default '',
+  `lightbox` char(1) NOT NULL default '',
+  `lightboxFadeSpeed` int(10) unsigned NOT NULL default '0',
+  `lightboxTransitionSpeed` int(10) unsigned NOT NULL default '0',
+  `overlayBackground` varchar(6) NOT NULL default '',
+  `overlayOpacity` float unsigned NOT NULL default '0',
+  `imageCrop` varchar(32) NOT NULL default '',
+  `imageMargin` int(10) unsigned NOT NULL default '0',
+  `imagePan` char(1) NOT NULL default '',
+  `imagePanSmoothness` int(10) unsigned NOT NULL default '0',
+  `imagePosition` varchar(32) NOT NULL default '',
+  `thumbPosition` varchar(32) NOT NULL default 'center',
+  `maxScaleRatio` float unsigned NOT NULL default '0',
+  `autoplay` char(1) NOT NULL default '',
+  `autoplayInterval` int(10) unsigned NOT NULL default '0',
+  `pauseOnInteraction` char(1) NOT NULL default '',
+  `carousel` char(1) NOT NULL default '',
+  `carouselSpeed` int(10) unsigned NOT NULL default '0',
+  `carouselSteps` varchar(32) NOT NULL default '',
+  `thumbnails` varchar(32) NOT NULL default '',
+  `thumbCrop` varchar(32) NOT NULL default '',
+  `thumbMargin` int(10) unsigned NOT NULL default '0',
+  `thumbQuality` varchar(32) NOT NULL default '',
+  `easing` varchar(32) NOT NULL default '',
+  `popupLinks` char(1) NOT NULL default '',
+  `extend` mediumtext NULL,
+  `dataConfig` mediumtext NULL,
+  `preload` varchar(32) NOT NULL default '',
+  `debug` char(1) NOT NULL default '',
+  `queue` char(1) NOT NULL default '',
+  `swipe` char(1) NOT NULL default '',
+  `fullscreenDoubleTap` char(1) NOT NULL default '',
+  `flickr` char(1) NOT NULL default '',
+  `flickrMethods` varchar(32) NOT NULL default '',
+  `flickrMethodsValue` varchar(32) NOT NULL default '',
+  `flickrOptMax` int(10) unsigned NOT NULL default '0',
+  `flickrOptImageSize` varchar(32) NOT NULL default '',
+  `flickrOptThumbSize` varchar(32) NOT NULL default '',
+  `flickrOptSort` varchar(32) NOT NULL default '',
+  `flickrOptDescription` char(1) NOT NULL default '',
+  `history` char(1) NOT NULL default '',
+  `dummy` binary(16) NULL,
+  `layerFollow` char(1) NOT NULL default '',
+  `imageTimeout` int(10) unsigned NOT NULL default '0',
+  `fullscreenCrop` varchar(32) NOT NULL default '',
+  `picasa` char(1) NOT NULL default '',
+  `picasaMethods` varchar(32) NOT NULL default '',
+  `picasaMethodsValue` varchar(32) NOT NULL default '',
+  `picasaOptMax` int(10) unsigned NOT NULL default '0',
+  `picasaOptImageSize` varchar(32) NOT NULL default '',
+  `picasaOptThumbSize` varchar(32) NOT NULL default '',
+  `dailymotion` mediumtext NULL,
+  `vimeo` mediumtext NULL,
+  `youtube` mediumtext NULL,
+  `trueFullscreen` char(1) NOT NULL default '',
+  `responsive` char(1) NOT NULL default '',
+  `wait` varchar(32) NOT NULL default '',
+  `dataSource` varchar(32) NOT NULL default '',
+  `dataSelector` varchar(32) NOT NULL default '',
+  `keepSource` char(1) NOT NULL default '',
+  `json` mediumtext NULL,
+  `idleMode` varchar(32) NOT NULL default 'true',
+  `idleTime` int(10) unsigned NOT NULL default '0',
+  `idleSpeed` int(10) unsigned NOT NULL default '0',
+  `thumbDisplayOrder` char(1) NOT NULL default '1',
+  `dataSort` mediumtext NULL,
+  `maxVideoSize` int(10) unsigned NOT NULL default '0',
+  `variation` varchar(32) NOT NULL default '',
+  `videoPoster` char(1) NOT NULL default '1',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=3;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_galerie_pictures'
+#---------------------------------------------------------
+CREATE TABLE `tl_galerie_pictures` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `sorting` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `published` char(1) NOT NULL default '',
+  `title` varchar(255) NOT NULL default '',
+  `fullscreenSingleSRC` binary(16) NULL,
+  `singleSRC` binary(16) NULL,
+  `thumbSRC` binary(16) NULL,
+  `alt` mediumtext NULL,
+  `imageUrl` varchar(255) NOT NULL default '',
+  `size` varchar(64) NOT NULL default '',
+  `thumbSize` varchar(64) NOT NULL default '',
+  `video` varchar(255) NOT NULL default '',
+  `iframe` varchar(255) NOT NULL default '',
+  `iframeThumb` char(1) NOT NULL default '',
+  `dataConfigHTML` mediumtext NULL,
+  `layerHTML` mediumtext NULL,
+  PRIMARY KEY  (`id`),
+  KEY `pid` (`pid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_image_size'
+#---------------------------------------------------------
+CREATE TABLE `tl_image_size` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `name` varchar(64) NULL,
+  `sizes` varchar(255) NOT NULL default '',
+  `densities` varchar(255) NOT NULL default '',
+  `width` int(10) NULL,
+  `height` int(10) NULL,
+  `resizeMode` varchar(255) NOT NULL default '',
+  `zoom` int(10) NULL,
+  `skipIfDimensionsMatch` char(1) NOT NULL default '',
+  `lazyLoading` char(1) NOT NULL default '',
+  `formats` varchar(255) NOT NULL default '',
+  `cssClass` varchar(255) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `pid` (`pid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_image_size_item'
+#---------------------------------------------------------
+CREATE TABLE `tl_image_size_item` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `sorting` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `media` varchar(255) NOT NULL default '',
+  `sizes` varchar(255) NOT NULL default '',
+  `densities` varchar(255) NOT NULL default '',
+  `width` int(10) NULL,
+  `height` int(10) NULL,
+  `resizeMode` varchar(255) NOT NULL default '',
+  `zoom` int(10) NULL,
+  `invisible` char(1) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `pid` (`pid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_layout'
+#---------------------------------------------------------
+CREATE TABLE `tl_layout` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `name` varchar(255) NOT NULL default '',
+  `rows` varchar(8) NOT NULL default '2rwh',
+  `headerHeight` varchar(255) NOT NULL default '',
+  `footerHeight` varchar(255) NOT NULL default '',
+  `cols` varchar(8) NOT NULL default '2cll',
+  `widthLeft` varchar(255) NOT NULL default '',
+  `widthRight` varchar(255) NOT NULL default '',
+  `sections` blob NULL,
+  `sPosition` varchar(32) NOT NULL default '',
+  `framework` varchar(255) NOT NULL default 'a:2:{i:0;s:10:"layout.css";i:1;s:14:"responsive.css";}',
+  `stylesheet` blob NULL,
+  `external` blob NULL,
+  `orderExt` blob NULL,
+  `loadingOrder` varchar(16) NOT NULL default 'external_first',
+  `newsfeeds` blob NULL,
+  `calendarfeeds` blob NULL,
+  `modules` blob NULL,
+  `template` varchar(64) NOT NULL default '',
+  `doctype` varchar(32) NOT NULL default '',
+  `webfonts` varchar(255) NOT NULL default '',
+  `viewport` varchar(255) NOT NULL default '',
+  `titleTag` varchar(255) NOT NULL default '',
+  `cssClass` varchar(255) NOT NULL default '',
+  `onload` varchar(255) NOT NULL default '',
+  `head` mediumtext NULL,
+  `addJQuery` char(1) NOT NULL default '',
+  `jSource` varchar(16) NOT NULL default '',
+  `jquery` mediumtext NULL,
+  `addMooTools` char(1) NOT NULL default '',
+  `mooSource` varchar(16) NOT NULL default 'moo_local',
+  `mootools` mediumtext NULL,
+  `analytics` mediumtext NULL,
+  `script` mediumtext NULL,
+  `static` char(1) NOT NULL default '',
+  `width` varchar(255) NOT NULL default '',
+  `align` varchar(32) NOT NULL default 'center',
+  `scripts` mediumtext NULL,
+  `combineScripts` char(1) NOT NULL default '1',
+  `externalJs` blob NULL,
+  `minifyMarkup` char(1) NOT NULL default '1',
+  `defaultImageDensities` varchar(255) NOT NULL default '',
+  `orderExtJs` blob NULL,
+  `lightboxSize` varchar(255) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=16;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_log'
+#---------------------------------------------------------
+CREATE TABLE `tl_log` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `source` varchar(32) NOT NULL default '',
+  `action` varchar(32) NOT NULL default '',
+  `username` varchar(64) NOT NULL default '',
+  `text` mediumtext NULL,
+  `func` varchar(255) NOT NULL default '',
+  `ip` varchar(64) NOT NULL default '',
+  `browser` varchar(255) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=281;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_member'
+#---------------------------------------------------------
+CREATE TABLE `tl_member` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `firstname` varchar(255) NOT NULL default '',
+  `lastname` varchar(255) NOT NULL default '',
+  `dateOfBirth` varchar(11) NOT NULL default '',
+  `gender` varchar(32) NOT NULL default '',
+  `company` varchar(255) NOT NULL default '',
+  `street` varchar(255) NOT NULL default '',
+  `postal` varchar(32) NOT NULL default '',
+  `city` varchar(255) NOT NULL default '',
+  `state` varchar(64) NOT NULL default '',
+  `country` varchar(2) NOT NULL default '',
+  `phone` varchar(64) NOT NULL default '',
+  `mobile` varchar(64) NOT NULL default '',
+  `fax` varchar(64) NOT NULL default '',
+  `email` varchar(255) NOT NULL default '',
+  `website` varchar(255) NOT NULL default '',
+  `language` varchar(5) NOT NULL default '',
+  `groups` blob NULL,
+  `login` char(1) NOT NULL default '',
+  `username` varchar(64) COLLATE utf8mb4_bin NULL,
+  `password` varchar(255) NOT NULL default '',
+  `assignDir` char(1) NOT NULL default '',
+  `homeDir` binary(16) NULL,
+  `disable` char(1) NOT NULL default '',
+  `start` varchar(10) NOT NULL default '',
+  `stop` varchar(10) NOT NULL default '',
+  `dateAdded` int(10) unsigned NOT NULL default '0',
+  `lastLogin` int(10) unsigned NOT NULL default '0',
+  `currentLogin` int(10) unsigned NOT NULL default '0',
+  `loginCount` smallint(5) unsigned NOT NULL default '3',
+  `locked` int(10) unsigned NOT NULL default '0',
+  `session` blob NULL,
+  `autologin` varchar(32) NULL,
+  `createdOn` int(10) unsigned NOT NULL default '0',
+  `activation` varchar(32) NOT NULL default '',
+  `newsletter` blob NULL,
+  `backupCodes` text NULL,
+  `useTwoFactor` char(1) NOT NULL default '',
+  `secret` binary(128) NULL,
+  `loginAttempts` smallint(5) unsigned NOT NULL default '0',
+  `trustedTokenVersion` int(10) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `username` (`username`),
+  KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_member_group'
+#---------------------------------------------------------
+CREATE TABLE `tl_member_group` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `name` varchar(255) NOT NULL default '',
+  `redirect` char(1) NOT NULL default '',
+  `jumpTo` int(10) unsigned NOT NULL default '0',
+  `disable` char(1) NOT NULL default '',
+  `start` varchar(10) NOT NULL default '',
+  `stop` varchar(10) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_module'
+#---------------------------------------------------------
+CREATE TABLE `tl_module` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `name` varchar(255) NOT NULL default '',
+  `headline` varchar(255) NOT NULL default 'a:2:{s:5:"value";s:0:"";s:4:"unit";s:2:"h2";}',
+  `type` varchar(64) NOT NULL default 'navigation',
+  `levelOffset` smallint(5) unsigned NOT NULL default '0',
+  `showLevel` smallint(5) unsigned NOT NULL default '0',
+  `hardLimit` char(1) NOT NULL default '',
+  `showProtected` char(1) NOT NULL default '',
+  `defineRoot` char(1) NOT NULL default '',
+  `rootPage` int(10) unsigned NOT NULL default '0',
+  `navigationTpl` varchar(64) NOT NULL default '',
+  `customTpl` varchar(64) NOT NULL default '',
+  `pages` blob NULL,
+  `orderPages` blob NULL,
+  `showHidden` char(1) NOT NULL default '',
+  `customLabel` varchar(64) NOT NULL default '',
+  `autologin` char(1) NOT NULL default '',
+  `jumpTo` int(10) unsigned NOT NULL default '0',
+  `redirectBack` char(1) NOT NULL default '',
+  `cols` varchar(32) NOT NULL default '',
+  `editable` blob NULL,
+  `memberTpl` varchar(64) NOT NULL default '',
+  `tableless` char(1) NOT NULL default '',
+  `form` int(10) unsigned NOT NULL default '0',
+  `queryType` varchar(32) NOT NULL default 'and',
+  `fuzzy` char(1) NOT NULL default '',
+  `contextLength` varchar(64) NOT NULL default '',
+  `minKeywordLength` smallint(5) unsigned NOT NULL default '4',
+  `perPage` smallint(5) unsigned NOT NULL default '0',
+  `searchType` varchar(32) NOT NULL default 'simple',
+  `searchTpl` varchar(64) NOT NULL default '',
+  `inColumn` varchar(32) NOT NULL default 'main',
+  `skipFirst` smallint(5) unsigned NOT NULL default '0',
+  `loadFirst` char(1) NOT NULL default '',
+  `size` varchar(64) NOT NULL default '',
+  `transparent` char(1) NOT NULL default '',
+  `flashvars` varchar(255) NOT NULL default '',
+  `altContent` mediumtext NULL,
+  `source` varchar(32) NOT NULL default '',
+  `singleSRC` binary(16) NULL,
+  `url` varchar(255) NOT NULL default '',
+  `interactive` char(1) NOT NULL default '',
+  `flashID` varchar(64) NOT NULL default '',
+  `flashJS` mediumtext NULL,
+  `imgSize` varchar(255) NOT NULL default '',
+  `useCaption` char(1) NOT NULL default '',
+  `fullsize` char(1) NOT NULL default '',
+  `multiSRC` blob NULL,
+  `orderSRC` blob NULL,
+  `html` mediumtext NULL,
+  `rss_cache` int(10) unsigned NOT NULL default '3600',
+  `rss_feed` mediumtext NULL,
+  `rss_template` varchar(64) NOT NULL default '',
+  `numberOfItems` smallint(5) unsigned NOT NULL default '3',
+  `disableCaptcha` char(1) NOT NULL default '',
+  `reg_groups` blob NULL,
+  `reg_allowLogin` char(1) NOT NULL default '',
+  `reg_skipName` char(1) NOT NULL default '',
+  `reg_close` varchar(32) NOT NULL default '',
+  `reg_assignDir` char(1) NOT NULL default '',
+  `reg_homeDir` binary(16) NULL,
+  `reg_activate` char(1) NOT NULL default '',
+  `reg_jumpTo` int(10) unsigned NOT NULL default '0',
+  `reg_text` mediumtext NULL,
+  `reg_password` mediumtext NULL,
+  `protected` char(1) NOT NULL default '',
+  `groups` blob NULL,
+  `guests` char(1) NOT NULL default '',
+  `cssID` varchar(255) NOT NULL default '',
+  `space` varchar(64) NOT NULL default '',
+  `cal_calendar` blob NULL,
+  `cal_noSpan` char(1) NOT NULL default '',
+  `cal_startDay` smallint(5) unsigned NOT NULL default '1',
+  `cal_format` varchar(32) NOT NULL default 'cal_month',
+  `cal_ignoreDynamic` char(1) NOT NULL default '',
+  `cal_order` varchar(32) NOT NULL default 'ascending',
+  `cal_readerModule` int(10) unsigned NOT NULL default '0',
+  `cal_limit` smallint(5) unsigned NOT NULL default '0',
+  `cal_template` varchar(64) NOT NULL default '',
+  `cal_ctemplate` varchar(64) NOT NULL default '',
+  `cal_showQuantity` char(1) NOT NULL default '',
+  `com_order` varchar(32) NOT NULL default 'ascending',
+  `com_moderate` char(1) NOT NULL default '',
+  `com_bbcode` char(1) NOT NULL default '',
+  `com_requireLogin` char(1) NOT NULL default '',
+  `com_disableCaptcha` char(1) NOT NULL default '',
+  `com_template` varchar(64) NOT NULL default '',
+  `faq_categories` blob NULL,
+  `faq_readerModule` int(10) unsigned NOT NULL default '0',
+  `list_table` varchar(64) NOT NULL default '',
+  `list_fields` varchar(255) NOT NULL default '',
+  `list_where` varchar(255) NOT NULL default '',
+  `list_search` varchar(255) NOT NULL default '',
+  `list_sort` varchar(255) NOT NULL default '',
+  `list_info` varchar(255) NOT NULL default '',
+  `list_info_where` varchar(255) NOT NULL default '',
+  `list_layout` varchar(64) NOT NULL default '',
+  `list_info_layout` varchar(64) NOT NULL default '',
+  `news_archives` blob NULL,
+  `news_featured` varchar(16) NOT NULL default 'all_items',
+  `news_jumpToCurrent` varchar(16) NOT NULL default '',
+  `news_readerModule` int(10) unsigned NOT NULL default '0',
+  `news_metaFields` varchar(255) NOT NULL default 'a:2:{i:0;s:4:"date";i:1;s:6:"author";}',
+  `news_template` varchar(64) NOT NULL default '',
+  `news_format` varchar(32) NOT NULL default 'news_month',
+  `news_startDay` smallint(5) unsigned NOT NULL default '0',
+  `news_order` varchar(32) NOT NULL default 'order_date_desc',
+  `news_showQuantity` char(1) NOT NULL default '',
+  `newsletters` blob NULL,
+  `nl_channels` blob NULL,
+  `nl_hideChannels` char(1) NOT NULL default '',
+  `nl_subscribe` mediumtext NULL,
+  `nl_unsubscribe` mediumtext NULL,
+  `nl_template` varchar(64) NOT NULL default '',
+  `galerie` int(10) unsigned NOT NULL default '0',
+  `imagesFolder` blob NULL,
+  `sortBy` varchar(32) NOT NULL default '',
+  `groupImgSize` varchar(64) NOT NULL default '',
+  `hideActiveLanguage` char(1) NOT NULL default '',
+  `hideNoFallback` char(1) NOT NULL default '',
+  `customLanguage` char(1) NOT NULL default '',
+  `customLanguageText` mediumtext NULL,
+  `inheritPageImage` char(1) NOT NULL default '',
+  `randomPageImage` char(1) NOT NULL default '',
+  `dk_cfsMultiSRC` blob NULL,
+  `dk_cfsSortBy` varchar(32) NOT NULL default '',
+  `dk_cfsImageSize` varchar(64) NOT NULL default '',
+  `dk_cfsFullsize` char(1) NOT NULL default '',
+  `dk_cfsNumberOfItems` smallint(5) unsigned NOT NULL default '0',
+  `dk_cfsUseThumbnails` char(1) NOT NULL default '',
+  `dk_cfsThumbnailsVisibleSelect` varchar(32) NOT NULL default '',
+  `dk_cfsThumbnailSize` varchar(64) NOT NULL default '',
+  `dk_cfsThumbnailsVisible` smallint(5) unsigned NOT NULL default '5',
+  `dk_cfsThumbnailsPosition` varchar(32) NOT NULL default '',
+  `dk_cfsThumbnailsAlign` varchar(32) NOT NULL default '',
+  `dk_cfsThumbnailsWidth` varchar(64) NOT NULL default '',
+  `dk_cfsThumbnailsHeight` varchar(64) NOT NULL default '',
+  `dk_cfsCarouFredSel` varchar(255) NOT NULL default '',
+  `dk_cfsSynchronise` varchar(255) NOT NULL default '',
+  `dk_cfsHtmlTpl` varchar(255) NOT NULL default '',
+  `dk_cfsCssTpl` varchar(255) NOT NULL default '',
+  `dk_cfsJsTpl` varchar(255) NOT NULL default '',
+  `dk_cfsGalleryTpl` varchar(255) NOT NULL default '',
+  `dk_mmenuPosition` varchar(32) NOT NULL default '',
+  `dk_mmenuZposition` varchar(32) NOT NULL default '',
+  `dk_mmenuSlidingSubmenus` varchar(32) NOT NULL default '',
+  `dk_mmenuTheme` varchar(32) NOT NULL default '',
+  `dk_mmenuMoveBackground` char(1) NOT NULL default '1',
+  `dk_mmenuFullscreen` char(1) NOT NULL default '',
+  `dk_mmenuCountersAdd` char(1) NOT NULL default '',
+  `dk_mmenuCountersUpdate` char(1) NOT NULL default '',
+  `dk_mmenuSearchfieldAdd` char(1) NOT NULL default '',
+  `dk_mmenuEffectSlide` char(1) NOT NULL default '',
+  `dk_mmenuEffectZoomMenu` char(1) NOT NULL default '',
+  `dk_mmenuEffectZoomPanels` char(1) NOT NULL default '',
+  `dk_mmenuDragOpenOpen` char(1) NOT NULL default '',
+  `dk_mmenuDragOpenThreshold` smallint(5) NOT NULL default '50',
+  `dk_mmenuOnClickClose` char(1) NOT NULL default '1',
+  `dk_mmenuOnClickBlockUI` char(1) NOT NULL default '',
+  `dk_mmenuModal` char(1) NOT NULL default '',
+  `dk_mmenuArticle` varchar(255) NOT NULL default '',
+  `dk_mmenuTpl` varchar(255) NOT NULL default '',
+  `dk_mmenuHtmlTpl` varchar(255) NOT NULL default '',
+  `dk_mmenuJsTpl` varchar(255) NOT NULL default '',
+  `mobile_menu_phones` char(1) NOT NULL default '',
+  `mobile_menu_tablets` char(1) NOT NULL default '',
+  `mobile_menu_breakpoint` varchar(4) NOT NULL default '',
+  `mobile_menu_disableNavigation` char(1) NOT NULL default '',
+  `mobile_menu_parentTogglers` char(1) NOT NULL default '',
+  `mobile_menu_closeOnLinkClick` char(1) NOT NULL default '',
+  `mobile_menu_keepInPlace` char(1) NOT NULL default '',
+  `mobile_menu_position` varchar(8) NOT NULL default '',
+  `mobile_menu_size` varchar(3) NOT NULL default '',
+  `mobile_menu_overlay` char(1) NOT NULL default '',
+  `mobile_menu_offCanvas` char(1) NOT NULL default '',
+  `mobile_menu_noShadow` char(1) NOT NULL default '',
+  `mobile_menu_animation` char(1) NOT NULL default '',
+  `mobile_menu_animationSpeed` smallint(5) unsigned NOT NULL default '0',
+  `mobile_menu_trigger` mediumtext NULL,
+  `mobile_menu_html` mediumtext NULL,
+  `tag_sourcetables` blob NULL,
+  `hide_on_empty` char(1) NOT NULL default '1',
+  `tag_tagtable` varchar(100) NOT NULL default '',
+  `tag_filter` varchar(1000) NOT NULL default '',
+  `tag_tagfield` varchar(100) NOT NULL default '',
+  `tag_maxtags` smallint(5) unsigned NOT NULL default '0',
+  `tag_buckets` smallint(5) unsigned NOT NULL default '4',
+  `tag_named_class` char(1) NOT NULL default '',
+  `tag_on_page_class` char(1) NOT NULL default '',
+  `keep_url_params` char(1) NOT NULL default '',
+  `tag_topten` char(1) NOT NULL default '',
+  `tag_topten_number` varchar(3) NOT NULL default '10',
+  `tag_related` char(1) NOT NULL default '',
+  `tag_topten_expanded` char(1) NOT NULL default '',
+  `tag_all_expanded` char(1) NOT NULL default '',
+  `news_showtags` char(1) NOT NULL default '',
+  `event_showtags` char(1) NOT NULL default '',
+  `tag_jumpTo` smallint(5) unsigned NOT NULL default '0',
+  `tag_ignore` char(1) NOT NULL default '',
+  `objecttype` varchar(100) NOT NULL default '',
+  `tagsource` varchar(100) NOT NULL default '',
+  `pagesource` blob NULL,
+  `articlelist_template` varchar(32) NOT NULL default '',
+  `cloud_template` varchar(32) NOT NULL default '',
+  `scope_template` varchar(32) NOT NULL default '',
+  `clear_text` varchar(128) NOT NULL default '',
+  `show_empty_scope` char(1) NOT NULL default '',
+  `tag_show_reset` char(1) NOT NULL default '',
+  `nl_text` text NULL,
+  `cal_hideRunning` char(1) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=78;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_news'
+#---------------------------------------------------------
+CREATE TABLE `tl_news` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `headline` varchar(255) NOT NULL default '',
+  `alias` varchar(255) COLLATE utf8mb4_bin NOT NULL default '',
+  `author` int(10) unsigned NOT NULL default '0',
+  `date` int(10) unsigned NOT NULL default '0',
+  `time` int(11) NOT NULL default '0',
+  `subheadline` varchar(255) NOT NULL default '',
+  `teaser` mediumtext NULL,
+  `addImage` char(1) NOT NULL default '',
+  `singleSRC` binary(16) NULL,
+  `alt` varchar(255) NOT NULL default '',
+  `size` varchar(64) NOT NULL default '',
+  `imagemargin` varchar(128) NOT NULL default '',
+  `imageUrl` varchar(255) NOT NULL default '',
+  `fullsize` char(1) NOT NULL default '',
+  `caption` varchar(255) NOT NULL default '',
+  `floating` varchar(12) NOT NULL default 'above',
+  `addEnclosure` char(1) NOT NULL default '',
+  `enclosure` blob NULL,
+  `source` varchar(12) NOT NULL default 'default',
+  `jumpTo` int(10) unsigned NOT NULL default '0',
+  `articleId` int(10) unsigned NOT NULL default '0',
+  `url` varchar(255) NOT NULL default '',
+  `target` char(1) NOT NULL default '',
+  `cssClass` varchar(255) NOT NULL default '',
+  `noComments` char(1) NOT NULL default '',
+  `featured` char(1) NOT NULL default '',
+  `published` char(1) NOT NULL default '',
+  `start` varchar(10) NOT NULL default '',
+  `stop` varchar(10) NOT NULL default '',
+  `languageMain` int(10) unsigned NOT NULL default '0',
+  `tags` char(1) NOT NULL default '',
+  `overwriteMeta` char(1) NOT NULL default '',
+  `orderEnclosure` blob NULL,
+  `imageTitle` varchar(255) NOT NULL default '',
+  `description` text NULL,
+  `pageTitle` varchar(255) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `alias` (`alias`),
+  KEY `pid_start_stop_published` (`pid`, `start`, `stop`, `published`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=61;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_news_archive'
+#---------------------------------------------------------
+CREATE TABLE `tl_news_archive` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `title` varchar(255) NOT NULL default '',
+  `jumpTo` int(10) unsigned NOT NULL default '0',
+  `protected` char(1) NOT NULL default '',
+  `groups` blob NULL,
+  `allowComments` char(1) NOT NULL default '',
+  `notify` varchar(16) NOT NULL default 'notify_admin',
+  `sortOrder` varchar(32) NOT NULL default 'ascending',
+  `perPage` smallint(5) unsigned NOT NULL default '0',
+  `moderate` char(1) NOT NULL default '',
+  `bbcode` char(1) NOT NULL default '',
+  `requireLogin` char(1) NOT NULL default '',
+  `disableCaptcha` char(1) NOT NULL default '',
+  `master` int(10) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=3;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_news_feed'
+#---------------------------------------------------------
+CREATE TABLE `tl_news_feed` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `title` varchar(255) NOT NULL default '',
+  `alias` varchar(255) COLLATE utf8mb4_bin NOT NULL default '',
+  `language` varchar(32) NOT NULL default '',
+  `archives` blob NULL,
+  `format` varchar(32) NOT NULL default 'rss',
+  `source` varchar(32) NOT NULL default 'source_teaser',
+  `maxItems` smallint(5) unsigned NOT NULL default '25',
+  `feedBase` varchar(255) NOT NULL default '',
+  `description` mediumtext NULL,
+  PRIMARY KEY  (`id`),
+  KEY `alias` (`alias`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_newsletter'
+#---------------------------------------------------------
+CREATE TABLE `tl_newsletter` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `subject` varchar(255) NOT NULL default '',
+  `alias` varchar(255) COLLATE utf8mb4_bin NOT NULL default '',
+  `content` longtext NULL,
+  `text` longtext NULL,
+  `addFile` char(1) NOT NULL default '',
+  `files` blob NULL,
+  `template` varchar(64) NOT NULL default '',
+  `sendText` char(1) NOT NULL default '',
+  `externalImages` char(1) NOT NULL default '',
+  `sender` varchar(255) NOT NULL default '',
+  `senderName` varchar(128) NOT NULL default '',
+  `sent` char(1) NOT NULL default '',
+  `date` varchar(10) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `pid` (`pid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_newsletter_blacklist'
+#---------------------------------------------------------
+CREATE TABLE `tl_newsletter_blacklist` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `hash` varchar(32) NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `pid_hash` (`pid`, `hash`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_newsletter_channel'
+#---------------------------------------------------------
+CREATE TABLE `tl_newsletter_channel` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `title` varchar(255) NOT NULL default '',
+  `jumpTo` int(10) unsigned NOT NULL default '0',
+  `useSMTP` char(1) NOT NULL default '',
+  `smtpHost` varchar(64) NOT NULL default '',
+  `smtpUser` varchar(128) NOT NULL default '',
+  `smtpPass` varchar(32) NOT NULL default '',
+  `smtpEnc` varchar(3) NOT NULL default '',
+  `smtpPort` smallint(5) unsigned NOT NULL default '0',
+  `sender` varchar(255) NOT NULL default '',
+  `template` varchar(32) NOT NULL default '',
+  `senderName` varchar(128) NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_newsletter_recipients'
+#---------------------------------------------------------
+CREATE TABLE `tl_newsletter_recipients` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `email` varchar(255) NOT NULL default '',
+  `active` char(1) NOT NULL default '',
+  `addedOn` varchar(10) NOT NULL default '',
+  `confirmed` varchar(10) NOT NULL default '',
+  `ip` varchar(64) NOT NULL default '',
+  `token` varchar(32) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `pid_email` (`pid`, `email`),
+  KEY `active` (`active`),
+  KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_newsletter_recipients_backup'
+#---------------------------------------------------------
+CREATE TABLE `tl_newsletter_recipients_backup` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `email` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
+  `active` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `addedOn` varchar(10) COLLATE utf8_general_ci NOT NULL default '',
+  `confirmed` varchar(10) COLLATE utf8_general_ci NOT NULL default '',
+  `ip` varchar(64) COLLATE utf8_general_ci NOT NULL default '',
+  `token` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `pid` (`pid`),
+  KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_opt_in'
+#---------------------------------------------------------
+CREATE TABLE `tl_opt_in` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `token` varchar(24) NOT NULL default '',
+  `createdOn` int(10) unsigned NOT NULL default '0',
+  `confirmedOn` int(10) unsigned NOT NULL default '0',
+  `removeOn` int(10) unsigned NOT NULL default '0',
+  `invalidatedThrough` varchar(24) NOT NULL default '',
+  `email` varchar(255) NOT NULL default '',
+  `emailSubject` varchar(255) NOT NULL default '',
+  `emailText` text NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `token` (`token`),
+  KEY `removeon` (`removeOn`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_opt_in_related'
+#---------------------------------------------------------
+CREATE TABLE `tl_opt_in_related` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `relTable` varchar(64) NULL,
+  `relId` int(10) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`id`),
+  KEY `reltable_relid` (`relTable`, `relId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_page'
+#---------------------------------------------------------
+CREATE TABLE `tl_page` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `sorting` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `title` varchar(255) NOT NULL default '',
+  `alias` varchar(255) COLLATE utf8mb4_bin NOT NULL default '',
+  `type` varchar(64) NOT NULL default 'regular',
+  `pageTitle` varchar(255) NOT NULL default '',
+  `language` varchar(5) NOT NULL default '',
+  `robots` varchar(32) NOT NULL default '',
+  `description` mediumtext NULL,
+  `redirect` varchar(32) NOT NULL default 'permanent',
+  `jumpTo` int(10) unsigned NOT NULL default '0',
+  `url` varchar(255) NOT NULL default '',
+  `target` char(1) NOT NULL default '',
+  `dns` varchar(255) NOT NULL default '',
+  `staticFiles` varchar(255) NOT NULL default '',
+  `staticPlugins` varchar(255) NOT NULL default '',
+  `fallback` char(1) NOT NULL default '',
+  `adminEmail` varchar(255) NOT NULL default '',
+  `dateFormat` varchar(32) NOT NULL default '',
+  `timeFormat` varchar(32) NOT NULL default '',
+  `datimFormat` varchar(32) NOT NULL default '',
+  `createSitemap` char(1) NOT NULL default '',
+  `sitemapName` varchar(32) NOT NULL default '',
+  `useSSL` char(1) NOT NULL default '',
+  `autoforward` char(1) NOT NULL default '',
+  `protected` char(1) NOT NULL default '',
+  `groups` blob NULL,
+  `includeLayout` char(1) NOT NULL default '',
+  `layout` int(10) unsigned NOT NULL default '0',
+  `mobileLayout` int(10) unsigned NOT NULL default '0',
+  `includeCache` char(1) NOT NULL default '',
+  `cache` int(10) unsigned NOT NULL default '0',
+  `includeChmod` char(1) NOT NULL default '',
+  `cuser` int(10) unsigned NOT NULL default '0',
+  `cgroup` int(10) unsigned NOT NULL default '0',
+  `chmod` varchar(255) NOT NULL default '',
+  `noSearch` char(1) NOT NULL default '',
+  `cssClass` varchar(64) NOT NULL default '',
+  `sitemap` varchar(32) NOT NULL default '',
+  `hide` char(1) NOT NULL default '',
+  `guests` char(1) NOT NULL default '',
+  `tabindex` smallint(5) unsigned NOT NULL default '0',
+  `accesskey` char(1) NOT NULL default '',
+  `published` char(1) NOT NULL default '',
+  `start` varchar(10) NOT NULL default '',
+  `stop` varchar(10) NOT NULL default '',
+  `languageMain` int(10) unsigned NOT NULL default '0',
+  `languageRoot` int(10) unsigned NOT NULL default '0',
+  `languageQuery` varchar(255) NOT NULL default '',
+  `pageImage` blob NULL,
+  `pageImageOrder` blob NULL,
+  `pageImageJumpTo` int(10) unsigned NOT NULL default '0',
+  `pageImageAlt` varchar(255) NOT NULL default '',
+  `pageImageTitle` varchar(255) NOT NULL default '',
+  `cookiebar_enable` char(1) NOT NULL default '',
+  `cookiebar_message` mediumtext NULL,
+  `cookiebar_url` varchar(255) NOT NULL default '',
+  `cookiebar_position` varchar(8) NOT NULL default '',
+  `cookiebar_placement` varchar(16) NOT NULL default '',
+  `cookiebar_button` varchar(128) NOT NULL default '',
+  `cookiebar_link` varchar(128) NOT NULL default '',
+  `cookiebar_combineAssets` char(1) NOT NULL default '',
+  `cookiebar_includeCss` char(1) NOT NULL default '1',
+  `cookiebar_ttl` varchar(4) NOT NULL default '',
+  `cookiebar_analyticsCheckbox` char(1) NOT NULL default '',
+  `cookiebar_analyticsLabel` varchar(128) NOT NULL default '',
+  `pageImageOverwriteMeta` char(1) NOT NULL default '',
+  `pageImageUrl` varchar(255) NOT NULL default '',
+  `twoFactorJumpTo` int(10) unsigned NOT NULL default '0',
+  `enforceTwoFactor` char(1) NOT NULL default '',
+  `requireItem` char(1) NOT NULL default '',
+  `clientCache` int(10) unsigned NOT NULL default '0',
+  `alwaysLoadFromCache` char(1) NOT NULL default '',
+  `favicon` binary(16) NULL,
+  `redirectBack` char(1) NOT NULL default '',
+  `robotsTxt` text NULL,
+  `validAliasCharacters` varchar(255) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `type_dns` (`type`, `dns`),
+  KEY `alias` (`alias`),
+  KEY `pid_type_start_stop_published` (`pid`, `type`, `start`, `stop`, `published`),
+  KEY `languagemain` (`languageMain`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=153;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_remember_me'
+#---------------------------------------------------------
+CREATE TABLE `tl_remember_me` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `series` binary(32) NOT NULL,
+  `value` binary(64) NOT NULL,
+  `lastUsed` datetime NOT NULL,
+  `expires` datetime NULL,
+  `class` varchar(100) NOT NULL,
+  `username` varchar(200) NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `value` (`value`),
+  KEY `series` (`series`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_repository_installs'
+#---------------------------------------------------------
+CREATE TABLE `tl_repository_installs` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `extension` varchar(32) COLLATE utf8_general_ci NOT NULL default '',
+  `version` int(9) NOT NULL default '0',
+  `build` int(9) NOT NULL default '0',
+  `alpha` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `beta` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `rc` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `stable` char(1) COLLATE utf8_general_ci NOT NULL default '1',
+  `lickey` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
+  `delprot` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `updprot` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  `error` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=22;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_repository_instfiles'
+#---------------------------------------------------------
+CREATE TABLE `tl_repository_instfiles` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `filename` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
+  `filetype` char(1) COLLATE utf8_general_ci NOT NULL default 'F',
+  `flag` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `pid` (`pid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1572;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_search'
+#---------------------------------------------------------
+CREATE TABLE `tl_search` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `title` varchar(255) NOT NULL default '',
+  `url` varchar(255) NOT NULL default '',
+  `text` longtext NULL,
+  `filesize` double NOT NULL default '0',
+  `checksum` varchar(32) NOT NULL default '',
+  `protected` char(1) NOT NULL default '',
+  `groups` blob NULL,
+  `language` varchar(5) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `url` (`url`),
+  UNIQUE KEY `checksum_pid` (`checksum`, `pid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=25;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_search_index'
+#---------------------------------------------------------
+CREATE TABLE `tl_search_index` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `word` varchar(64) COLLATE utf8mb4_bin NOT NULL default '',
+  `relevance` smallint(5) unsigned NOT NULL default '0',
+  `language` varchar(5) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `pid` (`pid`),
+  KEY `word` (`word`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=7226;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_session'
+#---------------------------------------------------------
+CREATE TABLE `tl_session` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `name` varchar(255) COLLATE utf8_general_ci NOT NULL default '',
+  `sessionID` varchar(128) COLLATE utf8_general_ci NOT NULL default '',
+  `hash` varchar(40) COLLATE utf8_general_ci NULL,
+  `ip` varchar(64) COLLATE utf8_general_ci NOT NULL default '',
+  `su` char(1) COLLATE utf8_general_ci NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `hash` (`hash`),
+  KEY `pid` (`pid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=826;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_style'
+#---------------------------------------------------------
+CREATE TABLE `tl_style` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `sorting` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `selector` varchar(1022) NOT NULL default '',
+  `category` varchar(32) NOT NULL default '',
+  `comment` varchar(255) NOT NULL default '',
+  `size` char(1) NOT NULL default '',
+  `width` varchar(64) NOT NULL default '',
+  `height` varchar(64) NOT NULL default '',
+  `minwidth` varchar(64) NOT NULL default '',
+  `minheight` varchar(64) NOT NULL default '',
+  `maxwidth` varchar(64) NOT NULL default '',
+  `maxheight` varchar(64) NOT NULL default '',
+  `positioning` char(1) NOT NULL default '',
+  `trbl` varchar(128) NOT NULL default '',
+  `position` varchar(32) NOT NULL default '',
+  `floating` varchar(32) NOT NULL default '',
+  `clear` varchar(32) NOT NULL default '',
+  `overflow` varchar(32) NOT NULL default '',
+  `display` varchar(32) NOT NULL default '',
+  `alignment` char(1) NOT NULL default '',
+  `margin` varchar(128) NOT NULL default '',
+  `padding` varchar(128) NOT NULL default '',
+  `align` varchar(32) NOT NULL default '',
+  `verticalalign` varchar(32) NOT NULL default '',
+  `textalign` varchar(32) NOT NULL default '',
+  `whitespace` varchar(8) NOT NULL default '',
+  `background` char(1) NOT NULL default '',
+  `bgcolor` varchar(64) NOT NULL default '',
+  `bgimage` varchar(255) NOT NULL default '',
+  `bgposition` varchar(32) NOT NULL default '',
+  `bgrepeat` varchar(32) NOT NULL default '',
+  `shadowsize` varchar(128) NOT NULL default '',
+  `shadowcolor` varchar(64) NOT NULL default '',
+  `gradientAngle` varchar(32) NOT NULL default '',
+  `gradientColors` varchar(128) NOT NULL default '',
+  `border` char(1) NOT NULL default '',
+  `borderwidth` varchar(128) NOT NULL default '',
+  `borderstyle` varchar(32) NOT NULL default '',
+  `bordercolor` varchar(64) NOT NULL default '',
+  `borderradius` varchar(128) NOT NULL default '',
+  `bordercollapse` varchar(32) NOT NULL default '',
+  `borderspacing` varchar(64) NOT NULL default '',
+  `font` char(1) NOT NULL default '',
+  `fontfamily` varchar(255) NOT NULL default '',
+  `fontsize` varchar(64) NOT NULL default '',
+  `fontcolor` varchar(64) NOT NULL default '',
+  `lineheight` varchar(64) NOT NULL default '',
+  `fontstyle` varchar(255) NOT NULL default '',
+  `texttransform` varchar(32) NOT NULL default '',
+  `textindent` varchar(64) NOT NULL default '',
+  `letterspacing` varchar(64) NOT NULL default '',
+  `wordspacing` varchar(64) NOT NULL default '',
+  `list` char(1) NOT NULL default '',
+  `liststyletype` varchar(32) NOT NULL default '',
+  `liststyleimage` varchar(255) NOT NULL default '',
+  `own` mediumtext NULL,
+  `invisible` char(1) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `pid` (`pid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=582;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_style_sheet'
+#---------------------------------------------------------
+CREATE TABLE `tl_style_sheet` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `name` varchar(64) NULL,
+  `disablePie` char(1) NOT NULL default '',
+  `embedImages` int(10) unsigned NOT NULL default '0',
+  `cc` varchar(32) NOT NULL default '',
+  `media` varchar(255) NOT NULL default 'a:1:{i:0;s:3:"all";}',
+  `mediaQuery` mediumtext NULL,
+  `vars` mediumtext NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=14;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_tag'
+#---------------------------------------------------------
+CREATE TABLE `tl_tag` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tid` int(10) unsigned NOT NULL default '0',
+  `tag` varchar(100) COLLATE utf8_general_ci NOT NULL default '',
+  `from_table` varchar(100) COLLATE utf8_general_ci NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY `tid` (`tid`),
+  KEY `tag` (`tag`),
+  KEY `from_table` (`from_table`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=181;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_theme'
+#---------------------------------------------------------
+CREATE TABLE `tl_theme` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `name` varchar(128) NOT NULL default '',
+  `author` varchar(128) NOT NULL default '',
+  `folders` blob NULL,
+  `screenshot` binary(16) NULL,
+  `templates` varchar(255) NOT NULL default '',
+  `vars` mediumtext NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=2;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_trusted_device'
+#---------------------------------------------------------
+CREATE TABLE `tl_trusted_device` (
+  `id` int(11) NOT NULL auto_increment,
+  `created` datetime NOT NULL,
+  `userClass` varchar(255) NULL,
+  `userId` int(11) NULL,
+  `user_agent` longtext NULL,
+  `ua_family` varchar(255) NULL,
+  `os_family` varchar(255) NULL,
+  `device_family` varchar(255) NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_undo'
+#---------------------------------------------------------
+CREATE TABLE `tl_undo` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `fromTable` varchar(255) NOT NULL default '',
+  `query` mediumtext NULL,
+  `affectedRows` smallint(5) unsigned NOT NULL default '0',
+  `data` mediumblob NULL,
+  `haste_data` blob NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=3;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_user'
+#---------------------------------------------------------
+CREATE TABLE `tl_user` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `username` varchar(64) COLLATE utf8mb4_bin NULL,
+  `name` varchar(255) NOT NULL default '',
+  `email` varchar(255) NOT NULL default '',
+  `language` varchar(5) NOT NULL default '',
+  `backendTheme` varchar(32) NOT NULL default '',
+  `uploader` varchar(32) NOT NULL default '',
+  `showHelp` char(1) NOT NULL default '1',
+  `thumbnails` char(1) NOT NULL default '1',
+  `useRTE` char(1) NOT NULL default '1',
+  `useCE` char(1) NOT NULL default '1',
+  `password` varchar(255) NOT NULL default '',
+  `pwChange` char(1) NOT NULL default '',
+  `admin` char(1) NOT NULL default '',
+  `groups` blob NULL,
+  `inherit` varchar(12) NOT NULL default 'group',
+  `modules` blob NULL,
+  `themes` blob NULL,
+  `pagemounts` blob NULL,
+  `alpty` blob NULL,
+  `filemounts` blob NULL,
+  `fop` blob NULL,
+  `forms` blob NULL,
+  `formp` blob NULL,
+  `disable` char(1) NOT NULL default '',
+  `start` varchar(10) NOT NULL default '',
+  `stop` varchar(10) NOT NULL default '',
+  `session` blob NULL,
+  `dateAdded` int(10) unsigned NOT NULL default '0',
+  `lastLogin` int(10) unsigned NOT NULL default '0',
+  `currentLogin` int(10) unsigned NOT NULL default '0',
+  `loginCount` smallint(5) unsigned NOT NULL default '3',
+  `locked` int(10) unsigned NOT NULL default '0',
+  `calendars` blob NULL,
+  `calendarp` blob NULL,
+  `calendarfeeds` blob NULL,
+  `calendarfeedp` blob NULL,
+  `faqs` blob NULL,
+  `faqp` blob NULL,
+  `news` blob NULL,
+  `newp` blob NULL,
+  `newsfeeds` blob NULL,
+  `newsfeedp` blob NULL,
+  `newsletters` blob NULL,
+  `newsletterp` blob NULL,
+  `galleria` blob NULL,
+  `galleria_permission` blob NULL,
+  `imageSizes` blob NULL,
+  `trustedTokenVersion` int(10) unsigned NOT NULL default '0',
+  `backupCodes` text NULL,
+  `loginAttempts` smallint(5) unsigned NOT NULL default '0',
+  `useTwoFactor` char(1) NOT NULL default '',
+  `secret` binary(128) NULL,
+  `amg` blob NULL,
+  `fields` blob NULL,
+  `elements` blob NULL,
+  `fullscreen` char(1) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `username` (`username`),
+  KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=6;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_user_group'
+#---------------------------------------------------------
+CREATE TABLE `tl_user_group` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `name` varchar(255) NOT NULL default '',
+  `modules` blob NULL,
+  `themes` blob NULL,
+  `pagemounts` blob NULL,
+  `alpty` blob NULL,
+  `filemounts` blob NULL,
+  `fop` blob NULL,
+  `forms` blob NULL,
+  `formp` blob NULL,
+  `alexf` blob NULL,
+  `disable` char(1) NOT NULL default '',
+  `start` varchar(10) NOT NULL default '',
+  `stop` varchar(10) NOT NULL default '',
+  `calendars` blob NULL,
+  `calendarp` blob NULL,
+  `calendarfeeds` blob NULL,
+  `calendarfeedp` blob NULL,
+  `faqs` blob NULL,
+  `faqp` blob NULL,
+  `news` blob NULL,
+  `newp` blob NULL,
+  `newsfeeds` blob NULL,
+  `newsfeedp` blob NULL,
+  `newsletters` blob NULL,
+  `newsletterp` blob NULL,
+  `galleria` blob NULL,
+  `galleria_permission` blob NULL,
+  `imageSizes` blob NULL,
+  `elements` blob NULL,
+  `fields` blob NULL,
+  `amg` blob NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=2;
+
+
+#---------------------------------------------------------
+# Table structure for table 'tl_version'
+#---------------------------------------------------------
+CREATE TABLE `tl_version` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `pid` int(10) unsigned NOT NULL default '0',
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `version` smallint(5) unsigned NOT NULL default '1',
+  `fromTable` varchar(255) NOT NULL default '',
+  `userid` int(10) unsigned NOT NULL default '0',
+  `username` varchar(64) NULL,
+  `description` varchar(255) NOT NULL default '',
+  `editUrl` text NULL,
+  `active` char(1) NOT NULL default '',
+  `data` mediumblob NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `pid_fromtable_version` (`pid`, `fromTable`, `version`),
+  KEY `userid` (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC AUTO_INCREMENT=80;
+
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+# --- End of Backup ---

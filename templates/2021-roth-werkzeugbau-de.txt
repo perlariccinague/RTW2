@@ -1,0 +1,29 @@
+#================================================================================
+# Website-Template : 2021-roth-werkzeugbau-de.sql
+#================================================================================
+# Contao-Website   : 2021.roth-werkzeugbau.de
+# Contao-Database  : dbs1668989
+# Saved by User    : kkadmin (Klapproth + Koch)
+# Time stamp       : 2021-03-26 at 15:48:35
+#
+# Contao Extension : BackupDbBundle, Version 1.4.2
+# Copyright        : Softleister (www.softleister.de)
+# Licence          : LGPL
+#
+# Visit https://github.com/do-while/contao-BackupDB for more information
+#
+#-----------------------------------------------------
+# If you save the backup in ZIP file, a file restoreSymlinks.php
+# is also in the ZIP. See the file for more information
+#-----------------------------------------------------
+# Contao Version 4.9.13
+# The following packages must be installed:
+#
+#   - codefog/contao-mobile_menu : 2.7.1
+#   - contao/conflicts : dev-main
+#   - jrgregory/m17-sticky-backend-footer : 2.0.9
+#   - terminal42/contao-changelanguage : 3.1.16
+#   - terminal42/contao-pageimage : 4.0.1
+#
+#================================================================================
+
