@@ -15,8 +15,14 @@
   .menu-close {
    background-color: white;
     transition: opacity 250ms;
-    &:hover {
+    /*&:hover {
       opacity: 0.7;
+    }*/
+    img {
+      transition: transform 250ms;
+      &:hover {
+        transform: scale(1.4);
+      }
     }
   }
 }

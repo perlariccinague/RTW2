@@ -5,28 +5,34 @@
     color: #002d5c;
     background-color: #009EE3;
     outline: none;
-    padding: 30px 80px;
+    padding: 30px 100px;
     font: normal normal 500 22px/20px Open Sans;;
     text-transform: uppercase;
     position: relative;
-    background-image: url("/files/layout/arrow-r-white.svg");
-    background-size: auto 25px;
+   /* background-image: url("/files/layout/arrow-r-white.svg");*/
+    background-image: url("/files/layout/arrow-down-blue.svg");
+    background-size: auto 18px;
     background-position: 4%;
     background-repeat: no-repeat;
     transition: background-color 250ms, color 250ms;
   }
 }
 
-.toggler.active,
+/*.toggler.active,
 .toggler:hover {
-  background-color: #1E72A0;
+  background-color: #002D5C;
   color: white;
 }
+.toggler:hover {
+  background-color: #1E72A0;
+}*/
 
-.toggler.active {
-  background-image: url("/files/layout/arrow-down-blue.svg");
+.toggler.active, .toggler:hover {
+  background-image: url("/files/layout/arrow-up-white.svg");
   background-size: auto 18px;
   padding: 30px 100px;
+  background-color: #002D5C;
+  color: white;
 }
 
 .ce_accordionStart .accordion-teaser {
@@ -35,4 +41,13 @@
   font:  normal normal lighter 18px/20px Open Sans;
   line-height: 1.6em;
   color: rgb(0,48,93);
+}
+
+@media screen and (max-width: 1025px) {
+  .ce_accordionStart .toggler {
+    font-size: 17px;
+    padding: 20px 100px;
+    background-size: auto 15px;
+    background-position: 20%;
+  }
 }

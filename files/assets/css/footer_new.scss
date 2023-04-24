@@ -10,7 +10,7 @@
   max-width: 1200px;
   .footer-top  {
     text-align: center;
-    .header-teaser.block {
+    .header-teaser {
       font: italic lighter normal 30px/27px Open Sans;
       transform: translateY(40px);
       p {
@@ -137,4 +137,59 @@
 
 .footer .footer-social-icons .icon1 img {
   width: 30px;
+}
+
+@media screen and (max-width: 1025px) {
+  .footer {
+    .footer-top {
+      .header-teaser {
+        transform: translateY(13px);
+        p {
+          font-size: 18px;
+          &:before, &:after {
+            width: 15%;
+            top: 15px;
+          }
+          &:before {
+            right: 90%;
+            margin-right: 30px;
+          }
+          &:after {
+            margin-left: 30px;
+            left: 90%;
+          }
+        }
+      }
+    }
+    .footer-middle {
+      margin: 40px auto;
+      .header-logo img {
+        width: 140px;
+      }
+      .footer-teaser {
+        margin-top: 20px;
+        text-align: center;
+        p {
+          font-size: 15px;
+          margin-bottom: 0;
+        }
+      }
+    }
+    .footer-bottom .footer-nav {
+      width: 100%;
+      padding-bottom: 22px;
+      ul {
+        justify-content: space-between;
+        width: 100%;
+       li {
+         font-size: 12px;
+         padding-right: 2px;
+         margin-right: 2px;
+       }
+      }
+    }
+    .footer-social-icons {
+      padding: 30px 0;
+    }
+  }
 }

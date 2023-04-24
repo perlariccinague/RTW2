@@ -131,3 +131,31 @@
     }
   }
 }
+
+@media screen and (max-width: 1025px) {
+  .ce_sliderStart.slider-news .content-slider {
+    width: 90%;
+    .slider-teaser h2 {
+      font-size: 25px;
+      margin-bottom: 0;
+      text-align: center;
+    }
+  }
+  .slider-news .slider-control {
+    .slider-prev, .slider-next {
+      .circle-bloc {
+        width: 75px;
+        height: 65px;
+        top: -16px;
+        .arrow-icon-left, .arrow-icon-right {
+          width: 50px;
+          height: 50px;
+          transform: translateX(0%);
+          img {
+            width: 35px;
+          }
+        }
+      }
+    }
+  }
+}
