@@ -157,10 +157,19 @@
   url("files/assets/fonts/open-sans-v15-latin-800italic.svg#OpenSans") format('svg'); /* Legacy iOS */
 }
 
-
-
+@font-face {
+  font-family: 'MinionPro';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/MinionPro-Regular.otf");
+}
 
 body {
   font-family: "Open Sans", sans-serif;
 }
+
+.invisible {
+  display: none;
+}
+
 

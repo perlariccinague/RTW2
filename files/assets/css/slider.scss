@@ -5,42 +5,59 @@
   .content-slider {
     width: 35%;
     margin: 0 auto;
-    .slider-teaser {
-      h2 {
-        font: normal normal bold 30px/36px Open Sans;
-        color: #002D5C;
-        text-transform: uppercase;
-        border-top: 6px solid #002D5C;
-        border-bottom: 6px solid #002D5C;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        /*margin: 40px auto;*/
+    .teaser-news {
+      font: normal normal normal 30px/36px Open Sans;
+      color: #002D5C;
+      text-transform: uppercase;
+      border-top: 6px solid #002D5C;
+      border-bottom: 6px solid #002D5C;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      .info {
+        font-size: 25px;
+        margin-bottom: 0;
       }
+      h2 {
+        font-size: 30px;
+        margin-top: 0;
+        margin-bottom: 0;
+        a {
+          color: #002D5C;
+          font-weight: bold;
+          text-decoration: none;
+        }
+      }
+    }
+    .ce_text {
       p {
         font: normal normal normal 20px/24px Open Sans;
         color: #002D5C;
         padding-top: 20px;
-        a {
-          font: normal normal bold 25px/24px Open Sans;
-          color: #002D5C;
-          text-transform: uppercase;
-          text-decoration: none;
-          position: relative;
-          margin-left: 63px;
-          transition: color 250ms;
-          &:before {
-            background: url("/files/layout/Pfeil-blue-dark.svg") no-repeat;
-            position: absolute;
-            content: "";
-            top: 4px;
-            left: -63px;
-            width: 35px;
-            height: 35px;
-            background-size: 30px;
-          }
-          &:hover {
-            color:#52D2F6;
-          }
+      }
+    }
+    .more {
+      font: normal normal bold 20px/24px Open Sans;
+      color: #002D5C;
+      text-transform: uppercase;
+      margin-left: 50px;
+      transition: color 250ms;
+      a {
+        position: relative;
+        color: #002D5C;
+        text-decoration: none;
+        &:before {
+          background: url("/files/layout/Pfeil-blue-dark.svg") no-repeat;
+          position: absolute;
+          content: "";
+          top: 0;
+          left: -50px;
+          width: 35px;
+          height: 35px;
+          background-size: 30px;
+        }
+        &:hover {
+          color:#52D2F6;
         }
       }
     }

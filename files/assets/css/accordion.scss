@@ -1,0 +1,114 @@
+.ce_accordionStart.accordion {
+  margin: 20px auto;
+  .toggler {
+    cursor: pointer;
+    color: #002d5c;
+    background-color: #009EE3;
+    outline: none;
+    padding: 30px 100px;
+    font: normal normal 500 22px/20px Open Sans;;
+    text-transform: uppercase;
+    position: relative;
+   /* background-image: url("/files/layout/arrow-r-white.svg");*/
+    background-image: url("/files/layout/arrow-down-blue.svg");
+    background-size: auto 18px;
+    background-position: 4%;
+    background-repeat: no-repeat;
+    transition: background-color 250ms, color 250ms;
+  }
+}
+
+/*.toggler.active,
+.toggler:hover {
+  background-color: #002D5C;
+  color: white;
+}
+.toggler:hover {
+  background-color: #1E72A0;
+}*/
+
+.accordion .toggler.active, .accordion .toggler:hover {
+  background-image: url("/files/layout/arrow-up-white.svg");
+  background-size: auto 18px;
+  padding: 30px 100px;
+  background-color: #002D5C;
+  color: white;
+}
+
+.ce_accordionStart.accordion .accordion-teaser {
+  max-width: 1000px;
+  margin: 30px auto;
+  font:  normal normal lighter 18px/20px Open Sans;
+  line-height: 1.6em;
+  color: rgb(0,48,93);
+}
+
+@media screen and (max-width: 1025px) {
+  .ce_accordionStart.accordion .toggler {
+    font-size: 17px;
+    padding: 20px 100px;
+    background-size: auto 15px;
+    background-position: 20%;
+  }
+
+  .mod_navigation .menu-list > li {
+    padding: 9px 0;
+    .mod_customnav.footer-nav {
+      text-transform: uppercase;
+      margin: 10px 30px;
+      ul {
+        margin-bottom: 0;
+        li {
+          padding: 9px 0;
+          font: normal normal normal 20px/24px Open Sans;
+          a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+            margin-left: 16px;
+            &:before {
+              color: #009EE3;
+              font-weight: 400;
+              content: "»";
+              position: absolute;
+              margin-left: -18px;
+              font-size: 22px;
+              margin-top: -1px;
+            }
+          }
+          &:last-child {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+  .ce_accordionSingle .toggler {
+    position: relative;
+    cursor: pointer;
+    span {
+      font-size: 24px;
+      color: white;
+      text-transform: uppercase;
+      margin-left: 15px;
+    }
+    &:before {
+         position: absolute;
+         content: "";
+         left: 5px;
+         top: 0;
+         width: 25px;
+         height: 25px;
+         background: url("/files/layout/arrow-r-white.svg") no-repeat;
+    }
+  }
+  .ce_accordionSingle .toggler.active {
+    border-bottom: 4px solid white;
+    padding-bottom: 20px;
+   &:before {
+     background: url("/files/layout/arrow-down-white.svg") no-repeat;
+     left: -5px;
+     top: 6px;
+   }
+  }
+}

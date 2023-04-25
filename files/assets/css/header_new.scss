@@ -9,51 +9,51 @@
   }*/
 }
 
-.header {
+.header, .footer {
   margin: 0 auto;
   width: 90%;
   max-width: 1200px;
-  .header-top {
+  .header-top, .footer-top {
     text-align: center;
     .header-teaser {
-      font: italic lighter normal 30px/27px Open Sans;
       transform: translateY(40px);
-      p {
-        color: white;
-        display: inline-block;
-        position: relative;
-        &:before, &:after {
-          content: "";
-          top: 28px;
-          width: 87%;
-          position: absolute;
-          border-bottom: 2px solid white;
-        }
-        &:before {
-          margin-right: 15px;
-          right: 100%;
-        }
-        &:after {
-          margin-left: 15px;
-          left: 100%;
-        }
+      width: 30%;
+      margin: 0 auto;
+      position: relative;
+      &:before, &:after {
+        content: "";
+        top: 14px;
+        width: 87%;
+        position: absolute;
+        border-bottom: 2px solid white;
+      }
+      &:before {
+        margin-right: 15px;
+        right: 100%;
+      }
+      &:after {
+        margin-left: 15px;
+        left: 100%;
+      }
+      img {
+        width: 350px;
       }
     }
   }
-  .header-bottom {
-    display: flex;
-    justify-content: center;
-    z-index: 2;
-    position: relative;
-    transform: translateY(50%);
-    align-items: center;
-    .header-logo {
-      width: 80%;
-      text-align: center;
-      img {
-        height: auto;
-        width: 200px;
-      }
+}
+.header .header-bottom {
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  position: relative;
+  transform: translateY(50%);
+  align-items: center;
+  .header-logo {
+    width: 80%;
+    text-align: center;
+    img {
+      height: auto;
+      width: 200px;
     }
   }
 }
@@ -77,23 +77,15 @@
 }
 
 @media screen and (max-width: 1025px) {
-  .header .header-top .header-teaser {
-    transform: translateY(0);
-    p {
-      margin-bottom: 0;
-      font: italic lighter normal 18px/20px Open Sans;
-      &:before, &:after {
-        width: 15%;
-        top: 15px;
-      }
-      &:before {
-        right: 90%;
-        margin-right: 30px;
-      }
-      &:after {
-        margin-left: 30px;
-        left: 90%;
-      }
+  .header .header-top .header-teaser,
+  .footer .footer-top .header-teaser {
+    transform: translateY(11px);
+    width: 52%;
+    img {
+      width: 170px;
+    }
+    &:before, &:after {
+      width: 40%;
     }
   }
   .header .header-bottom {

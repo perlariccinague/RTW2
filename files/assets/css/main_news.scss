@@ -535,11 +535,45 @@
     top: 50%;
   }
 
+  .box.blue .border, .box.blue-dark .border, {
+    margin: 20% 90px 0;
+    width: 90%;
+  }
+
+  .box.blue .border-bottom, .box.blue-dark .border-bottom {
+    margin: 2% 90px 34px;
+    width: 90%;
+  }
+
   .benefits-container {
     margin: 15px auto;
   }
   .ce_rsce_my_box {
     width: 48%;
+  }
+
+  .training-box .teaser-blue {
+    width: 100%;
+    p {
+      font-size: 25px;
+      a {
+        height: 150px;
+        position: relative;
+        &:before {
+          position: absolute;
+          content: "";
+          left: 40px;
+          top: 60px;
+          width: 35px;
+          height: 35px;
+          background: url("/files/layout/arrow-pfeil-white.svg") no-repeat;
+        }
+      }
+    }
+  }
+
+  .sticky-box {
+    display: none;
   }
 }
 
