@@ -9,25 +9,18 @@
     font: normal normal 500 22px/20px Open Sans;;
     text-transform: uppercase;
     position: relative;
-   /* background-image: url("/files/layout/arrow-r-white.svg");*/
     background-image: url("/files/layout/arrow-down-blue.svg");
     background-size: auto 18px;
     background-position: 4%;
     background-repeat: no-repeat;
-    transition: background-color 250ms, color 250ms;
+    transition: background-color 250ms;
+    &:hover {
+      background-color: #1E72A0;
+    }
   }
 }
 
-/*.toggler.active,
-.toggler:hover {
-  background-color: #002D5C;
-  color: white;
-}
-.toggler:hover {
-  background-color: #1E72A0;
-}*/
-
-.accordion .toggler.active, .accordion .toggler:hover {
+.accordion .toggler.active {
   background-image: url("/files/layout/arrow-up-white.svg");
   background-size: auto 18px;
   padding: 30px 100px;
@@ -51,7 +44,7 @@
     background-position: 20%;
   }
 
-  .mod_navigation .menu-list > li {
+  .mod_navigation-mobile .menu-list > li {
     padding: 9px 0;
     .mod_customnav.footer-nav {
       text-transform: uppercase;
@@ -59,9 +52,9 @@
       ul {
         margin-bottom: 0;
         li {
-          padding: 9px 0;
-          font: normal normal normal 20px/24px Open Sans;
-          a {
+          padding: 5px 0;
+          font: normal normal normal 17px/24px Open Sans;
+          a, strong {
             color: white;
             text-decoration: none;
             position: relative;
@@ -78,6 +71,9 @@
           }
           &:last-child {
             padding: 0;
+          }
+          strong {
+            font-weight: bolder;
           }
         }
       }
