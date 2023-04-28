@@ -233,12 +233,12 @@
   display: none;
 }
 
-#container {
+/*#container {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 150px;
   margin-top: 50px;
-}
+}*/
 #main {
   max-width: 100%;
 }
@@ -610,10 +610,10 @@
   width: 100%;
   height: auto;
 }
-#main img {
+/*#main img {
   max-width: 100%;
   height: auto;
-}
+}*/
 #main iframe {
   width: 100%;
 }
@@ -681,6 +681,15 @@
   width: 45%;
   float: left;
 }
+
+#main .left , #main .right {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
 #main .sticky-container {
   padding: 0px;
   margin: 0px;

@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   margin: 55px auto;
+  padding: 100px 0;
   .content-slider {
     width: 35%;
     margin: 0 auto;
@@ -41,6 +42,9 @@
       color: #002D5C;
       text-transform: uppercase;
       margin-left: 50px;
+      margin-top: 20px;
+      margin-bottom: 0;
+      padding-bottom: 20px;
       transition: color 250ms;
       a {
         position: relative;
@@ -69,18 +73,18 @@
   transform: translateY(-50%);
   width: 100%;
   top: 50%;
+  height: 43px;
   .slider-prev {
     left: -3%;
     width: 45px;
   }
   .slider-next {
-    right: -3%;
+    right: -2%;
   }
   .slider-prev, .slider-next {
     .circle-bloc {
       width: 200px;
       height: 150px;
-      border-radius: 39%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -118,6 +122,17 @@
   }
 }
 
+.slider-news .slider-control {
+  .slider-prev .circle-bloc {
+    border-top-right-radius: 39%;
+    border-bottom-right-radius: 39%;
+  }
+  .slider-next .circle-bloc {
+    border-top-left-radius: 39%;
+    border-bottom-left-radius: 39%;
+  }
+}
+
 .ce_sliderStart.slider-image {
   position: relative;
   width: 100%;
@@ -143,6 +158,7 @@
   }
   a {
     transition: filter 250ms;
+    transform: translateY(-50%);
     &:hover {
       filter: invert(45%) sepia(78%) saturate(1624%) hue-rotate(166deg) brightness(92%) contrast(102%);
     }
@@ -150,23 +166,41 @@
 }
 
 @media screen and (max-width: 1025px) {
-  .ce_sliderStart.slider-news .content-slider {
-    width: 90%;
-    .slider-teaser h2 {
-      font-size: 25px;
-      margin-bottom: 0;
-      text-align: center;
+  .ce_sliderStart.slider-news {
+    margin: 30px auto;
+    padding: 20px 0;
+    .content-slider {
+      width: 70%;
+      .slider-teaser h2 {
+        font-size: 25px;
+        margin-bottom: 0;
+        text-align: center;
+      }
+      .teaser-news {
+        line-height: 27px;
+        h2 {
+          font-size: 20px;
+        }
+        .info {
+          font-size: 18px;
+        }
+      }
+      .ce_text {
+        p {
+          font-size: 18px;
+        }
+      }
     }
   }
   .slider-news .slider-control {
     .slider-prev, .slider-next {
       .circle-bloc {
         width: 75px;
-        height: 65px;
-        top: -16px;
+        background: none;
         .arrow-icon-left, .arrow-icon-right {
-          width: 50px;
-          height: 50px;
+          width: 45px;
+          height: 45px;
+          box-shadow: none;
           transform: translateX(0%);
           img {
             width: 35px;

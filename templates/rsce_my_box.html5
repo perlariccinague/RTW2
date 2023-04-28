@@ -3,8 +3,10 @@
         <img src="{{file::<?= $this->icon ?>}}">
         <h3><?= $this->text  ?></h3>
         <div class="description">
-            <h3><?= $this->text  ?></h3>
-            <p><?= $this->description ?></p>
+            <div class="teaser">
+                <h3><?= $this->text  ?></h3>
+                <p><?= $this->description ?></p>
+            </div>
         </div>
     </div>
 </a>

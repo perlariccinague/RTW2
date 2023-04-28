@@ -37,7 +37,7 @@
                     <span>Nur bei Roth</span></div>
                 <div class="accordion ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content ui-accordion-content-active" style="display: block;" id="ui-id-2" aria-labelledby="ui-id-1" role="tabpanel" aria-hidden="false">
                     <div>
-                        {{insert_module::98}}
+                        {{insert_module::96}}
                     </div>
                 </div>
             </section>

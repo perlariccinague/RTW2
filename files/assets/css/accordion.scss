@@ -1,4 +1,4 @@
-.ce_accordionStart.accordion {
+#main .ce_accordionStart.accordion {
   margin: 20px auto;
   .toggler {
     cursor: pointer;
@@ -20,7 +20,8 @@
   }
 }
 
-.accordion .toggler.active {
+
+#main .accordion .toggler.active {
   background-image: url("/files/layout/arrow-up-white.svg");
   background-size: auto 18px;
   padding: 30px 100px;
@@ -28,16 +29,22 @@
   color: white;
 }
 
-.ce_accordionStart.accordion .accordion-teaser {
-  max-width: 1000px;
-  margin: 30px auto;
-  font:  normal normal lighter 18px/20px Open Sans;
-  line-height: 1.6em;
-  color: rgb(0,48,93);
+#main .ce_accordionStart.accordion .accordion-teaser {
+  p, ul {
+    max-width: 1000px;
+    margin: 30px auto;
+    font:  normal normal lighter 18px/20px Open Sans;
+    line-height: 1.6em;
+    color: rgb(0,48,93);
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
 }
 
 @media screen and (max-width: 1025px) {
-  .ce_accordionStart.accordion .toggler {
+  #main .ce_accordionStart.accordion .toggler {
     font-size: 17px;
     padding: 20px 100px;
     background-size: auto 15px;
@@ -58,7 +65,7 @@
             color: white;
             text-decoration: none;
             position: relative;
-            margin-left: 16px;
+            margin-left: 0;
             &:before {
               color: #009EE3;
               font-weight: 400;

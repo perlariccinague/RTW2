@@ -18,7 +18,7 @@
 }
 
 .sticky-box .ce_text {
-  z-index: 3;
+  z-index: 100;
   position: absolute;
   right: -450px;
   top: 50%;
@@ -33,7 +33,7 @@
 .sticky-box .ce_text {
    transition: margin-right 250ms;
    cursor: pointer;
-  .sticky-icon {
+  .sticky-icon, .sticky-icon1 {
     transition: .4s ease-in-out .2s;
     position: relative;
     left: 2px;
@@ -51,11 +51,17 @@
       width: 50%;
       margin-top: 1px;
       cursor: pointer;
+      margin-left: -8px;
     }
   }
   &:hover {
     margin-right: 318px;
   }
+}
+
+.sticky-box .ce_text:hover .sticky-icon img,
+.sticky-box .ce_text:hover .sticky-icon1 img{
+  margin-left: 0;
 }
 
 
@@ -78,8 +84,25 @@
         font: normal normal 600 18px/24px Open Sans;
         text-decoration: none;
         color: #D1F1FF;
+        transition: filter 250ms;
+        &:hover {
+          filter: brightness(1.7);
+        }
       }
     }
+  }
+}
+
+.sticky-icon1 {
+  display: none;
+}
+
+.sticky-box .ce_text:hover {
+  .sticky-icon {
+    display: none;
+  }
+  .sticky-icon1 {
+    display: block;
   }
 }
 
@@ -88,7 +111,7 @@
   position: relative;
   z-index: 3;
   transform: translateY(-50%);
-  .contain-teaser, .contain-teaser-new {
+  .contain-teaser {
     text-align: center;
     background-color: #009EE3;
     padding: 42px 85px;
@@ -115,7 +138,23 @@
 }
 
 .teaser-text .contain-teaser-new {
-  padding: 55px 85px;
+  padding: 56px 3px;
+  h2 {
+    a {
+      background-color: #009EE3;
+      padding: 44px 83px;
+      border: 15px solid white;
+      color: #FFFFFF;
+      border-radius: 10px;
+      text-transform: uppercase;
+      font: normal normal normal 30px/27px Open Sans;
+      text-decoration: none;
+      transition: color 250ms;
+      &:hover {
+        color: #002d5d;
+      }
+    }
+  }
 }
 
 .box-container {
@@ -146,12 +185,10 @@
     color: #FFFFFF;
     h2 {
       text-transform: uppercase;
-      /*margin-bottom: 100px;*/
       font: normal normal bold 30px/36px Open Sans;
     }
     p {
       font: normal normal normal 18px/24px Open Sans;
-      /*margin-bottom: 100px;*/
       a {
         text-transform: uppercase;
         color: white;
@@ -172,24 +209,17 @@
           img {
             width: 65px;
             transition: filter 250ms;
-            /*&:hover {
-              filter: saturate(0) invert(1)
-            }*/
           }
         }
 
         .arrow-right {
           box-shadow: inset 0 0 0 #00c1ff, 7px 7px 14px #007bb1, -7px -7px 14px #00c1ff;
-         /* &:hover {
-            box-shadow: inset -2px 3px 6px #0000004A;
-          }*/
         }
         .arrow-right-dark {
-          background-color: #052547;
-          box-shadow: inset 0 0 0 #003770, 7px 7px 14px #002348, -7px -7px 14px #003770;
-          /*&:hover {
-            box-shadow: inset -2px 3px 6px #0000004A;
-          }*/
+          /*background-color: #002d5c;
+          box-shadow: inset 0 0 0 #003770, 7px 7px 14px #002348, -7px -7px 14px #003770;*/
+          background: linear-gradient(45deg, #002953, #003062);
+          box-shadow: inset 0 0 0 #003770, 7px -7px 14px #00264e, -7px 7px 14px #00346a;
         }
         .text {
           margin-left: 30px;
@@ -223,13 +253,17 @@
     position: absolute;
     top: 30%;
     text-align: left;
-    font: normal normal bold 60px/24px Open Sans;
+    font: normal normal bold 40px/24px Open Sans;
     text-transform: uppercase;
     right: 38px;
   }
   &:hover {
     color: #002D5C;
   }
+}
+
+.box.hell:hover {
+  text-shadow: 2px 2px 4px gray;
 }
 
 .box.blue .border, .box.blue .border-bottom,
@@ -243,8 +277,6 @@
   margin: 2% 8% 0;
 }
 
-
-
 .box.blue .ce_text {
   a {
     &:hover {
@@ -252,7 +284,7 @@
        box-shadow: inset -2px 3px 6px #0000004A;
      }
       img {
-        filter: saturate(0) invert(1);
+        filter: saturate(0) invert(1) brightness(125%);
       }
       .text {
         color: #022F59;
@@ -264,11 +296,11 @@
 .box.blue-dark .ce_text {
   a {
     &:hover {
-      .arrow-right {
+      .arrow-right-dark {
         box-shadow: inset -2px 3px 6px #0000004A;
       }
       img {
-        filter: saturate(0) invert(1);
+        filter: invert(100%) saturate(0%) brightness(200%);
       }
       .text {
         color: #52D2F6;
@@ -366,7 +398,6 @@
 
 .benefits-link {
   text-decoration: none;
-  width: 16%;
   margin: 5px 0;
   cursor: pointer;
   img {
@@ -410,6 +441,9 @@
       transform: rotateY(90deg);
       transform-origin: 0 50%;
       pointer-events: none;
+      .teaser {
+        padding: 20px 9px;
+      }
     }
   }
 }
@@ -432,7 +466,7 @@
       background-color: #00305dd6;;
     }
     &.hell {
-      background-color: #00c1ff;
+      background-color: #009EE3;
     }
     p {
       text-align: center;
@@ -487,10 +521,25 @@
   }
 }
 
+#main .ce_image.main.block {
+  max-width: 100%;
+  padding: 0;
+  margin: 25px auto;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.ce_text.main img {
+  max-width: 100%;
+  height: auto;
+}
+
 @media screen and (max-width: 1025px) {
   .teaser-text {
     transform: translateY(-100%);
-    .contain-teaser, .contain-teaser-new {
+    .contain-teaser {
       padding: 15px 30px;
       h2 {
         font-size: 25px
@@ -499,15 +548,19 @@
         font-size: 15px;
       }
     }
-    .contain-teaser-new {
-      padding: 30px 30px;
+  }
+  .teaser-text .contain-teaser-new {
+    padding: 30px 3px;
+    h2 a {
+      font-size: 20px;
+      padding: 18px 20px;
     }
   }
   .box.hell, .box.blue, .box.blue-dark {
     width: 100%;
   }
   .box.hell img {
-    height: 70vh;
+    height: 60vh;
   }
   .box.blue, .box.blue-dark {
     h2 {
@@ -547,8 +600,10 @@
   .benefits-container {
     margin: 15px auto;
   }
-  .ce_rsce_my_box {
-    width: 48%;
+  .benefits-link .box {
+    width: 155px;
+    padding: 0 2px;
+    cursor: default;
   }
 
   .training-box .teaser-blue {
