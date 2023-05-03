@@ -15,7 +15,7 @@
   max-width: 1200px;
   .header-top, .footer-top {
     text-align: center;
-    .header-teaser {
+    .header-teaser, .header-teaser-work {
       transform: translateY(40px);
       width: 33%;
       margin: 0 auto;
@@ -36,7 +36,18 @@
         left: 100%;
       }
       img {
-        width: 350px;
+        width: 265px;
+        margin-top: -1px;
+      }
+    }
+  }
+}
+
+.header, .footer {
+  .header-top, .footer-top {
+    .header-teaser-work {
+      img {
+        width: 330px;
       }
     }
   }
@@ -54,6 +65,7 @@
     img {
       height: auto;
       width: 200px;
+      margin-right: -75px;
     }
   }
 }

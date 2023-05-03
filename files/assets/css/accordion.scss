@@ -1,8 +1,8 @@
 #main .ce_accordionStart.accordion {
-  margin: 20px auto;
+  margin: 35px auto;
   .toggler {
     cursor: pointer;
-    color: #002d5c;
+    color: white;
     background-color: #009EE3;
     outline: none;
     padding: 30px 100px;
@@ -30,9 +30,9 @@
 }
 
 #main .ce_accordionStart.accordion .accordion-teaser {
-  p, ul {
+  p, ul, h4 {
     max-width: 1000px;
-    margin: 30px auto;
+    margin: 15px auto;
     font:  normal normal lighter 18px/20px Open Sans;
     line-height: 1.6em;
     color: rgb(0,48,93);
@@ -40,6 +40,16 @@
       max-width: 100%;
       height: auto;
     }
+    li {
+      list-style-image: url("/files/layout/li.svg");
+    }
+  }
+  h4 {
+    border: 0;
+    text-align: left;
+    text-transform: none;
+    padding-bottom: 0;
+    margin: 0 auto;
   }
 }
 

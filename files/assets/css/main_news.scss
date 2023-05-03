@@ -188,7 +188,7 @@
       font: normal normal bold 30px/36px Open Sans;
     }
     p {
-      font: normal normal normal 18px/24px Open Sans;
+      font: normal normal normal 18px/28px Open Sans;
       a {
         text-transform: uppercase;
         color: white;
@@ -216,8 +216,6 @@
           box-shadow: inset 0 0 0 #00c1ff, 7px 7px 14px #007bb1, -7px -7px 14px #00c1ff;
         }
         .arrow-right-dark {
-          /*background-color: #002d5c;
-          box-shadow: inset 0 0 0 #003770, 7px 7px 14px #002348, -7px -7px 14px #003770;*/
           background: linear-gradient(45deg, #002953, #003062);
           box-shadow: inset 0 0 0 #003770, 7px -7px 14px #00264e, -7px 7px 14px #00346a;
         }
@@ -227,6 +225,7 @@
         }
       }
     }
+
   }
   h2 {
     font: normal normal bold 30px/36px Open Sans;
@@ -256,14 +255,11 @@
     font: normal normal bold 40px/24px Open Sans;
     text-transform: uppercase;
     right: 38px;
+    text-shadow: 2px 2px 11px rgba(0,45,92,0.71);
   }
   &:hover {
     color: #002D5C;
   }
-}
-
-.box.hell:hover {
-  text-shadow: 2px 2px 4px gray;
 }
 
 .box.blue .border, .box.blue .border-bottom,
@@ -470,7 +466,7 @@
     }
     p {
       text-align: center;
-      font: normal normal bold 60px/24px Open Sans;
+      font: normal normal bold 60px/28px Open Sans;
       margin-bottom: 0;
       a {
         text-decoration: none;
@@ -481,7 +477,6 @@
         justify-content: center;
         align-items: center;
         transition: background-color 250ms, color 250ms ;
-
         &:hover {
          color: #001F3F;
           background-color: #ffffffd9;
@@ -527,13 +522,55 @@
   margin: 25px auto;
   img {
     width: 100%;
-    height: auto;
+    height: 70vh;
+    object-fit: cover;
+    margin: 30px auto;
   }
 }
 
 .ce_text.main img {
   max-width: 100%;
   height: auto;
+}
+
+#main .ce_image#jobs.main img {
+  max-width: 100%;
+  height: auto;
+}
+
+.text-link-teaser-box {
+  p {
+
+  }
+}
+
+.box.blue #text-link-teaser-box p a {
+  text-decoration: underline;
+  color: white;
+  text-underline-offset: 6px;
+  text-transform: lowercase;
+  font: normal normal bold 18px/28px Open Sans;
+  display: inherit;
+  align-items: center;
+  margin: 0 auto;
+  transition: color 250ms;
+  &:hover {
+    color: #002a57;
+  }
+}
+
+.jobs .ce_form.block {
+  margin-bottom: 50px;
+}
+
+.motivations {
+  margin-bottom: 100px;
+}
+
+#main .ce_image.main-new {
+  margin: 30px auto 60px;
+  width: 90%;
+  max-width: 1200px;
 }
 
 @media screen and (max-width: 1025px) {
@@ -629,6 +666,28 @@
   .sticky-box {
     display: none;
   }
+  #main .main {
+   p, ul, h2, h3 {
+     width: 90%;
+   }
+  }
+
+  #main .ce_image.main-new {
+    margin: 30px auto;
+   img {
+     width: 100%;
+     height: auto;
+   }
+  }
+  #main .ce_image.main.block img {
+    height: auto;
+    margin: 0 auto;
+  }
+  #main .right, #main .left {
+    width: 90%;
+    margin: 0 auto;
+  }
+
 }
 
 

@@ -1,6 +1,6 @@
 .mobile_menu {
   .inner {
-    background: #143F6D;
+    background: linear-gradient(0deg, rgba(0,158,227,1) 0%, rgba(0,45,92,1) 100%);
     .header .header-bottom {
       transform: translateY(0%);
       margin-top: 75px;
@@ -9,6 +9,10 @@
       margin-left: auto;
     }
   }
+}
+
+.inner .header .header-bottom .header-logo img {
+  margin-right: 0;
 }
 
 .header .header-bottom .header-bottom-right {
