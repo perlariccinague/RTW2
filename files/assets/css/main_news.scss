@@ -142,21 +142,27 @@
   }
 }
 
-.teaser-text .contain-teaser-new {
-  padding: 56px 3px;
-  h2 {
-    a {
-      background-color: #009EE3;
-      padding: 44px 83px;
-      border: 15px solid white;
-      color: #FFFFFF;
-      border-radius: 10px;
-      text-transform: uppercase;
-      font: normal normal normal 30px/27px Open Sans;
-      text-decoration: none;
-      transition: color 250ms;
-      &:hover {
-        color: #002d5d;
+.teaser-text-new {
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  transform: translateY(-50%);
+  .contain-teaser-new {
+    padding: 56px 3px;
+    h2 {
+      a {
+        background-color: #009EE3;
+        padding: 44px 83px;
+        border: 15px solid white;
+        color: #FFFFFF;
+        border-radius: 10px;
+        text-transform: uppercase;
+        font: normal normal normal 30px/27px Open Sans;
+        text-decoration: none;
+        transition: color 250ms;
+        &:hover {
+          color: #002d5d;
+        }
       }
     }
   }
