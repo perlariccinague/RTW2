@@ -28,9 +28,15 @@
     }
     .slider-next {
       background-image: url("../../layout/content_slide-right.svg");
+      &:hover {
+        background-image: url("/files/layout/content_slide-right_hover.svg")
+      }
     }
     .slider-prev {
       background-image: url("../../layout/content_slide-left.svg");
+      &:hover {
+        background-image: url("/files/layout/content_slide-left_hover.svg")
+      }
     }
     .slider-menu {
       display: none;
