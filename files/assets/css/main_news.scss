@@ -111,11 +111,13 @@
   position: relative;
   z-index: 3;
   transform: translateY(-50%);
-  .contain-teaser {
+  > div {
+    width: 600px;
+    margin: 0 auto;
     text-align: center;
     background-color: #009EE3;
     padding: 42px 85px;
-    display: inline-block;
+    /* display: inline-block; */
     border: 15px solid white;
     color: #FFFFFF;
     border-radius: 10px;
@@ -133,6 +135,9 @@
       font: normal normal normal 18px/27px Open Sans;
       margin-bottom: 0;
       text-transform: uppercase;
+    }
+    .slider-control {
+      display: none;
     }
   }
 }
