@@ -1,0 +1,39 @@
+#main .showroom_slider {
+  margin-left: auto;
+  margin-right: auto;
+  .content-slider {
+    .slider-wrapper {
+      .ce_image {
+        figure {
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+  .slider-control {
+    position: absolute;
+    top: 365px;
+    width: calc(100% - 11px);
+    transform: translateX(-75px);
+    z-index: 9;
+    .slider-next,.slider-prev {
+      width: 50px;
+      height: 50px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      font-size: 0;
+    }
+    .slider-next {
+      background-image: url("../../layout/content_slide-right.svg");
+    }
+    .slider-prev {
+      background-image: url("../../layout/content_slide-left.svg");
+    }
+    .slider-menu {
+      display: none;
+    }
+  }
+}

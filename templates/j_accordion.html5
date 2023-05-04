@@ -1,5 +1,5 @@
 
-<script src="<?= $this->asset('js/jquery-ui.min.js', 'contao-components/jquery-ui') ?>"></script>
+<script src="assets/jquery-ui/js/jquery-ui.min.js"></script>
 <script>
   jQuery(function($) {
     $(document).accordion({
@@ -16,45 +16,44 @@
         ui.newHeader.addClass('active');
         ui.oldHeader.removeClass('active');
         $('.toggler').attr('tabindex', 0);
-        
-        
-          /** Scroll active accordion to top */
-          if(ui.newHeader.length > 0) {
-            $('html, body').animate({scrollTop: ui.newHeader.offset().top - ui.newHeader.outerHeight()}, 200);
-          }
-        
-      }
-    });
-  
-  
-   var targetToggler = $(document.location.hash).closest('.ce_accordion').find('.toggler');
-
-      if(targetToggler.length) {
-        $(document).accordion('option', 'active', $('.toggler').index(targetToggler));
-      }
-      /** On page load - END */
-
-
-      /**
-       * On link click
-       *
-       * Scroll to an accordion and open it if a link hash matches an ID within an accordion
-       */
-      $('a').each(function() {
-        var hash = $(this).prop('hash');
-
-        if(hash) {
-          var targetToggler = $(hash).closest('.ce_accordion').find('.toggler');
-
-          if(targetToggler.length) {
-            $(this).click(function() {
-              $(document).accordion('option', 'active', $('.toggler').index(targetToggler));
-            });
-          }
+        if(ui.newHeader.length > 0) {
+          $('html, body').animate({scrollTop: ui.newHeader.offset().top - ui.newHeader.outerHeight()}, 200);
         }
-      });
-      /** On link click - END */
+      }
     });
+    /**
+     * On page load
+     *
+     * Scroll to an accordion and open it if URL hash matches an ID within an accordion
+     */
+    var targetToggler = $(document.location.hash).closest('.ce_accordion').find('.toggler');
 
-  
+    if(targetToggler.length) {
+      $(document).accordion('option', 'active', $('.toggler').index(targetToggler));
+    }
+    /** On page load - END */
+
+
+    /**
+     * On link click
+     *
+     * Scroll to an accordion and open it if a link hash matches an ID within an accordion
+     */
+    $('a').each(function() {
+      var hash = $(this).prop('hash');
+
+      if(hash) {
+        var targetToggler = $(hash).closest('.ce_accordion').find('.toggler');
+
+        if(targetToggler.length) {
+          $(this).click(function() {
+            $(document).accordion('option', 'active', $('.toggler').index(targetToggler));
+          });
+        }
+      }
+    });
+  });
+
+
+
 </script>

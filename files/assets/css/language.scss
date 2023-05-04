@@ -1,0 +1,24 @@
+#header .header .header-top {
+  position: relative;
+  .header-teaser::after {
+    margin-left: 6px;
+  }
+}
+
+.mod_changelanguage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: right;
+  ul {
+    margin-top: 20px;
+    li {
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 17px;
+      }
+    }
+  }
+}
