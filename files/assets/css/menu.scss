@@ -108,12 +108,13 @@
       width: 80px;
       text-align: center;
       a {
-        transition: opacity 250ms;
+        transition: filter 250ms;
         &:hover {
-          opacity: 0.5;
+          filter: invert(0) sepia(100%) saturate(1%) brightness(150%) contrast(101%);
         }
         img {
           width: 40px;
+          filter: invert(17%) sepia(63%) saturate(422%) hue-rotate(42deg) brightness(93%) contrast(91%)
         }
       }
     }
@@ -123,6 +124,7 @@
 .menu-bottom .footer-social-icons .icon1 a {
   img {
     width: 30px;
+    filter: invert(17%) sepia(63%) saturate(422%) hue-rotate(42deg) brightness(93%) contrast(91%)
   }
 }
 
