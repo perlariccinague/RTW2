@@ -129,7 +129,9 @@
 }
 
 .inner .header .header-bottom .mod_form {
-  position: relative;
+  position: absolute;
+  left: 0;
+  height: 35px;
   #form-search {
     margin-bottom: 0;
     .search_input {
@@ -160,7 +162,26 @@
   display: none;
 }
 
+.mobile_menu .mod_navigation-mobile ul li > div {
+  color: white;
+  text-transform: uppercase;
+  font-size: 18px;
+  border-bottom: 2px solid;
+  padding-bottom: 10px;
+}
+
 @media screen and (max-width: 1025px) {
+
+  .mobile_menu .header-top .header-teaser {
+    &:before {
+      top: 14px;
+    }
+    &:after {
+      top: 14px;
+      margin-left: 15px;
+    }
+  }
+
   .menu-list-desktop {
     display: none;
   }
@@ -168,31 +189,40 @@
     display: block;
   }
   .mobile_menu .inner .header .header-bottom {
-    margin-top: 25px;
+    margin-top: 40px;
     display: block;
     text-align: center;
     .header-bottom-right {
       width: 100%;
-      transform: translateY(-65px);
+      transform: none;
     }
     .mod_form {
-      transform: translateY(175px);
+      position: relative;
+      width: 190px;
+      margin: 25px auto;
+      transform: none;
       #form-search {
         .search_input {
-          margin-left: -30px;
           input {
             width: 190px;
+            box-sizing: border-box;
           }
         }
         .widget-submit.search {
           input {
-            right: 110px;
+            right: 10px;
           }
         }
       }
     }
+    .header-logo {
+      margin: 0 auto;
+    }
   }
   .burger_menu, .menu-close {
+    position: absolute;
+    right: 0;
+    top: 0;
     width: 60px;
     height: 60px;
     img {

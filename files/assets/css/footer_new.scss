@@ -3,6 +3,14 @@
   mix-blend-mode: multiply;
   transform: translateY(-2px);
   clear: both;
+  .footer-top .header-teaser {
+    &:before {
+      top: 10px;
+    }
+    &:after {
+      top: 10px;
+    }
+  }
 }
 
 .footer .footer-middle {
@@ -95,12 +103,11 @@
     a {
       transition: filter 250ms;
       &:hover {
-        filter: invert(0) sepia(100%) saturate(1%) hue-rotate(313deg) brightness(150%) contrast(101%);
+        filter: saturate(0) brightness(10);
       }
     }
    img {
      width: 40px;
-     filter: invert(17%) sepia(63%) saturate(422%) hue-rotate(42deg) brightness(93%) contrast(91%);
    }
   }
 }
@@ -111,6 +118,27 @@
 }
 
 @media screen and (max-width: 1025px) {
+  #footer .footer-top .header-teaser {
+    &:before {
+      top: 3px;
+    }
+    &:after {
+      top: 3px;
+      margin-left: 15px;
+    }
+  }
+
+  body.career-page #footer .footer-top .header-teaser-work {
+    transform: none;
+    width: 100%;
+    &:before {
+      display: none;
+    }
+    &:after {
+    display: none;
+    }
+  }
+
   .footer {
     padding: 25px 0;
     .footer-middle {

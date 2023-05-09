@@ -22,7 +22,7 @@
       position: relative;
       &:before, &:after {
         content: "";
-        top: 14px;
+        top: 18px;
         width: 100%;
         position: absolute;
         border-bottom: 2px solid white;
@@ -39,6 +39,12 @@
         width: 300px;
         margin-top: -4px;
       }
+    }
+  }
+  .header-top {
+    .ce_image figure {
+      position: relative;
+      top: 10px;
     }
   }
 }
@@ -65,8 +71,11 @@
     img {
       height: auto;
       width: 200px;
-      margin-right: -75px;
     }
+  }
+  .mod_mobile_menu {
+    position: absolute;
+    right: 5%;
   }
 }
 
@@ -93,11 +102,23 @@
   .header .footer-top .header-teaser::after,
   .footer .header-top .header-teaser::after,
   .footer .footer-top .header-teaser::after {
-    margin-left: 50px;
+    margin-left: 15px;
   }
 }
 
 @media screen and (max-width: 1025px) {
+
+  #header .header-top .header-teaser {
+    &:before {
+      top: 14px;
+    }
+    &:after {
+      top: 14px;
+      margin-left: 15px;
+    }
+  }
+
+
   .header .header-top .header-teaser,
   .footer .footer-top .header-teaser {
     transform: translateY(11px);
@@ -121,6 +142,20 @@
       img {
         width: 45px;
       }
+    }
+    .mod_mobile_menu {
+      top: 40px;
+    }
+  }
+
+  body.career-page #header .header-top .header-teaser-work {
+    transform: translateY(10px);
+    width: 100%;
+    &:before {
+      display: none;
+    }
+    &:after {
+      display: none;
     }
   }
 }

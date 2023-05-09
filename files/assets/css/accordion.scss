@@ -56,9 +56,9 @@
 @media screen and (max-width: 1025px) {
   #main .ce_accordionStart.accordion .toggler {
     font-size: 17px;
-    padding: 20px 100px;
-    background-size: auto 15px;
-    background-position: 20%;
+    padding: 15px 25px 15px 40px;
+    background-size: auto 10px;
+    background-position: 15px;
   }
 
   .mod_navigation-mobile .menu-list > li {
@@ -87,7 +87,7 @@
             }
           }
           &:last-child {
-            padding: 0;
+            padding-bottom: 0;
           }
           strong {
             font-weight: bolder;
