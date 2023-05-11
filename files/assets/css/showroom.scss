@@ -43,3 +43,31 @@
     }
   }
 }
+
+@media screen and (max-width:1200px) {
+  #main .showroom_slider .slider-control {
+    top:95px;
+    width:100%;
+    opacity: 1;
+    transform: none;
+    a {
+      background-color: #002a57;
+      background-size: 65%;
+      &.slider-prev {
+        width: 40px;
+        height: 65px;
+        background-image: url("../../layout/arrow-left-white.svg");
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      &.slider-next {
+        width: 40px;
+        height: 65px;
+        background-image: url("../../layout/arrow-right-white.svg");
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+    }
+  }
+
+}

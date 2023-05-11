@@ -45,7 +45,8 @@
     display: table-cell;
     vertical-align: middle;
     text-align: center;
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     box-shadow: 0 3px 6px #00000029;
     img {
       width: 50%;
@@ -652,6 +653,9 @@
     font-size: 27px;
     top: 50%;
     text-shadow: 2px 2px 11px rgb(0, 45, 92);
+    text-align: center;
+    right: 50%;
+    transform: translateX(50%);
   }
 
   .box.blue .border, .box.blue-dark .border, {

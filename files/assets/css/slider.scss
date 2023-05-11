@@ -161,8 +161,11 @@
   a {
     transition: filter 250ms;
     transform: translateY(-50%);
+    box-shadow: 0 0 20px black;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.5);
     &:hover {
-      filter: invert(45%) sepia(78%) saturate(1624%) hue-rotate(166deg) brightness(92%) contrast(102%);
+      filter: brightness(0.65);
     }
   }
 }
