@@ -15,8 +15,8 @@
   max-width: 1200px;
   .header-top, .footer-top {
     text-align: center;
+    transform: translateY(40px);
     .header-teaser, .header-teaser-work {
-      transform: translateY(40px);
       width: 33%;
       margin: 0 auto;
       position: relative;
@@ -118,10 +118,12 @@
     }
   }
 
+  .header .header-top, .footer .footer-top {
+    transform: translateY(11px);
+  }
 
   .header .header-top .header-teaser,
   .footer .footer-top .header-teaser {
-    transform: translateY(11px);
     width: 55%;
     img {
       width: 170px;
