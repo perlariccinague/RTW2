@@ -68,6 +68,11 @@
   }
 }
 
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+}
+
 .slider-news .slider-control .slider-menu,
 .slider-image .slider-control .slider-menu {
   display: none;
@@ -143,10 +148,12 @@
 #main .ce_sliderStart.slider-image {
   position: relative;
   width: 100%;
-  .slider-wrapper img {
-    height: 75vh;
-    width: 100%;
-    object-fit: cover;
+  .slider-wrapper {
+    img {
+      height: 75vh;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 }
 

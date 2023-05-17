@@ -111,20 +111,20 @@
   text-align: center;
   position: relative;
   z-index: 3;
-  transform: translateY(-50%);
+  transform: translateY(-105px);
   > div {
-    width: 600px;
+    width: 490px;
+    padding: 25px 55px;
     margin: 0 auto;
     text-align: center;
     background-color: rgb(141,198,63);
-    padding: 42px 85px;
     /* display: inline-block; */
     border: 15px solid white;
     color: #FFFFFF;
     border-radius: 10px;
     h2 {
       text-transform: uppercase;
-      font: normal normal normal 30px/27px Open Sans;
+      font-size: 30px;
       margin-bottom: 0;
       margin-top: 0;
       a {
@@ -133,7 +133,8 @@
       }
     }
     p {
-      font: normal normal normal 18px/27px Open Sans;
+      font-size: 18px;
+      line-height: 1.5em;
       margin-bottom: 0;
       text-transform: uppercase;
     }
@@ -596,6 +597,22 @@
 #main .submenu_showroom {
   margin-bottom: 50px;
   width: 90%;
+}
+
+@media screen and (max-width: 1600px) {
+  .teaser-text {
+    transform: translateY(-112px);
+    > div {
+      width: 430px;
+      padding: 25px 35px;
+      h2 {
+        font-size: 22px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 1025px) {
