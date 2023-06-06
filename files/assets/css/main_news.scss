@@ -153,7 +153,7 @@
     padding: 56px 3px;
     h2 {
       a {
-        background-color: rgb(141,198,63);
+        background-color: #d21559;
         padding: 44px 83px;
         border: 15px solid white;
         color: #FFFFFF;
@@ -256,24 +256,29 @@
   margin-bottom: -2px;
    color: white;
   transition: color 250ms;
-  img{
-    width: 100%;
-    object-fit: cover;
-    position: relative;
+  .image_container {
+    height: 100%;
+    img{
+      width: 100%;
+      object-fit: cover;
+      position: relative;
+      height: 100%;
+    }
+    .caption {
+      position: absolute;
+      top: 30%;
+      text-align: right;
+      font: normal normal bold 40px/24px Open Sans;
+      text-transform: uppercase;
+      right: 38px;
+      text-shadow: 2px 2px 11px rgba(0,45,92,0.71);
+      line-height: 1.3em;
+    }
+    &:hover {
+      color: #002D5C;
+    }
   }
-  .caption {
-    position: absolute;
-    top: 30%;
-    text-align: right;
-    font: normal normal bold 40px/24px Open Sans;
-    text-transform: uppercase;
-    right: 38px;
-    text-shadow: 2px 2px 11px rgba(0,45,92,0.71);
-    line-height: 1.3em;
-  }
-  &:hover {
-    color: #002D5C;
-  }
+
 }
 
 .box.blue .border, .box.blue .border-bottom,
@@ -372,6 +377,11 @@
     border-bottom: 3px solid #009EE3;
     padding-bottom: 30px;
     text-align: center;
+  }
+  .ce_text {
+    img {
+      width: 100%;
+    }
   }
 }
 
@@ -473,10 +483,10 @@
     width: 50%;
     position: relative;
     &.dark {
-      background-color: #00305dd6;;
+      background-color: #009EE3;
     }
     &.hell {
-      background-color: #009EE3;
+      background-color: #00305dd6;
     }
     p {
       text-align: center;
@@ -597,6 +607,10 @@
 #main .submenu_showroom {
   margin-bottom: 50px;
   width: 90%;
+}
+
+#container #main .ce_text.linkbox.hell {
+  background: linear-gradient(180deg, rgba(180,53,91,1) 2%, rgba(149,12,53,1) 100%);
 }
 
 @media screen and (max-width: 1600px) {

@@ -53,6 +53,14 @@
   }
 }
 
+.ce_accordionStart.accordion.ce_accordion {
+  .button {
+    a:before {
+      display: none;
+    }
+  }
+}
+
 @media screen and (max-width: 1025px) {
   #main .ce_accordionStart.accordion .toggler {
     font-size: 17px;
