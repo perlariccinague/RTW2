@@ -94,6 +94,39 @@
   }
 }
 
+#main .sticky-box-career {
+  .ce_text {
+    width: 583px;
+    right: -535px;
+    .sticky-icon, .sticky-icon1 {
+      top: 133px;
+    }
+    .sticky-career table {
+      width: 400px !important;
+      border-color: #d21559;
+      background-color: #d21559;
+      tr td {
+        padding: 7px 0;
+        text-transform: none;
+        a {
+          background-color: #d21559;
+          &:hover {
+            filter: none;
+          }
+        }
+      }
+      .sticky-apply-now-button {
+        display: block;
+        width: 225px;
+        margin-top: 12px;
+      }
+    }
+    &:hover {
+      margin-right: 397px;
+    }
+  }
+}
+
 .sticky-icon1 {
   display: none;
 }
