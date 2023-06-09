@@ -358,8 +358,8 @@
 }
 
 #progress {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   background-color: #002D5C;
   border-radius: 50%;
   display: flex;
@@ -368,16 +368,16 @@
   cursor: pointer;
   position: fixed;
   right: 10px;
-  bottom: 14px;
+  bottom: 155px;
   align-content: center;
   z-index: 5;
 }
 
 .progressbar {
-  bottom: 20px;
+  bottom: 160px;
   right: 15px;
-  height: 60px;
-  width: 60px;
+  height: 40px;
+  width: 40px;
   display: flex;
   cursor: pointer;
   position: fixed;

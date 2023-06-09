@@ -150,14 +150,26 @@
     }
   }
 
-  body.career-page #header .header-top .header-teaser-work {
+  body.career-page #header .header-top,
+  body.career-page #footer .footer-top {
     transform: translateY(10px);
-    width: 100%;
-    &:before {
-      display: none;
+  }
+  body.career-page #header .header-top .header-teaser-work,
+  body.career-page #footer .footer-top .header-teaser-work {
+    width: 60%;
+    img {
+      width: 200px;
     }
-    &:after {
-      display: none;
+    &:before, &:after {
+      width: 30%;
+      top: 14px;
     }
   }
+
+  body.career-page #footer .footer-top .header-teaser-work {
+    &:before, &:after {
+      top: 3px;
+    }
+  }
+
 }
