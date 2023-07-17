@@ -337,7 +337,7 @@
 }
 #main .mod_eventlist .berufsmessen a {
   text-decoration:none;
-  color:#009ee3;
+  color:#d63b95;
 }
 #main .mod_newslist p.more a,
 #main .mod_eventlist p.more a {
@@ -349,7 +349,7 @@
 }
 #main .mod_eventlist .berufsmessen p.more a {
   text-decoration:none;
-  color:#009ee3;
+  color:#d63b95;
   text-transform: uppercase;
   font-size: 0.8em;
   font-weight: 400;
@@ -389,6 +389,9 @@
   padding-left: 6px;
   padding-right: 6px;
   padding-top: 4px;
+}
+#main .event.berufsmessen p time {
+  background-color: #d63b95;
 }
 #main .event.fachmessen p time {
   background-color:#002d5c;
@@ -455,7 +458,8 @@
   font-weight: 300;
 }
 #main .mod_calendar table.calendar td.days .event.berufsmessen a,
-#main .mod_calendar table.calendar td.days .event.upcoming a{
+#main .mod_calendar table.calendar td.days .event.upcoming a,
+#main .mod_calendar table.calendar td.days .event.bygone a{
   font:1em 'Open Sans',sans-serif;
   text-decoration:none;
   color:#fff;
@@ -464,6 +468,12 @@
   background-color: rgb(0, 158, 227);
   font-weight: 300;
 }
+
+
+#main .mod_calendar table.calendar td.days .event.berufsmessen a {
+  background-color: #d63b95;
+}
+
 #main .mod_calendar table.calendar th.head.current {
   letter-spacing:.5px;
   margin-right: auto;
