@@ -116,6 +116,17 @@
   width: 30px;
 }
 
+.footer:lang(pl) {
+  width: 100%;
+  max-width: 1225px;
+  .footer-bottom .footer-nav {
+    width: 100%;
+    ul {
+      width: 100%;
+    }
+  }
+}
+
 @media screen and (max-width: 1025px) {
   #footer .footer-top .header-teaser {
     &:before {

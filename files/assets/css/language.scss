@@ -12,7 +12,11 @@
   width: 100%;
   text-align: right;
   ul {
+    display: flex;
     margin-top: 20px;
+    margin-left: auto;
+    width: 60px;
+    justify-content: space-between;
     li {
       a {
         color: white;

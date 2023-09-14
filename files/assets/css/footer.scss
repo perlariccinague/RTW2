@@ -146,6 +146,18 @@
   }
 }
 
+html[lang="pl"] .footer {
+  width: 100%;
+  max-width: 1225px;
+  .footer-bottom .footer-nav {
+    width: 100%;
+    ul {
+      width: 100%;
+    }
+  }
+}
+
+
 @media screen and (max-width: 1125px) {
   #footer .info table {
     margin-left: auto;

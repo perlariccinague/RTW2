@@ -738,12 +738,12 @@
       }
     }
   }
-  .box.hell .caption {
-    font-size: 27px;
+  .box.hell .image_container .caption {
     top: 50%;
     text-shadow: 2px 2px 11px rgb(0, 45, 92);
     text-align: center;
-    right: 50%;
+    right: initial;
+    left: 20px;
     transform: translateX(50%);
   }
 
