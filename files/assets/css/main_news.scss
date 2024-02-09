@@ -103,13 +103,13 @@
     }
     .sticky-career table {
       width: 400px !important;
-      border-color: #d21559;
-      background-color: #d21559;
+      border-color: #dd0260;
+      background-color: #dd0260;
       tr td {
         padding: 7px 0;
         text-transform: none;
         a {
-          background-color: #d21559;
+          background-color: #dd0260;
           &:hover {
             filter: none;
           }
@@ -146,18 +146,18 @@
   z-index: 3;
   transform: translateY(-105px);
   > div {
-    width: 490px;
+    width: 300px;
     padding: 25px 55px;
     margin: 0 auto;
     text-align: center;
     background-color: rgb(141,198,63);
     /* display: inline-block; */
-    border: 15px solid white;
+    border: 7px solid white;
     color: #FFFFFF;
     border-radius: 10px;
     h2 {
       text-transform: uppercase;
-      font-size: 30px;
+      font-size: 25px;
       margin-bottom: 0;
       margin-top: 0;
       a {
@@ -166,7 +166,7 @@
       }
     }
     p {
-      font-size: 18px;
+      font-size: 15px;
       line-height: 1.5em;
       margin-bottom: 0;
       text-transform: uppercase;
@@ -183,13 +183,13 @@
   position: relative;
   z-index: 3;
   > div {
-    width: 490px;
+    width: 300px;
     margin: 0 auto;
     text-align: center;
     background: none;
     padding: 0;
     /* display: inline-block; */
-    border: 15px solid white;
+    border: 7px solid white;
     color: #FFFFFF;
     border-radius: 10px;
   }
@@ -199,13 +199,13 @@
     background: none;
     h2 {
       text-transform: uppercase;
-      font-size: 30px;
+      font-size: 25px;
       margin-bottom: 0;
       margin-top: 0;
       a {
         display: block;
         padding: 40px 3px;
-        background-color: #d21559;
+        background-color: #dd0260;
         text-decoration: none;
         color: white;
       }
@@ -666,6 +666,10 @@
 
 #container #main .ce_text.linkbox.hell {
   background: linear-gradient(180deg, rgba(180,53,91,1) 2%, rgba(149,12,53,1) 100%);
+}
+
+.ce_player video {
+  width: 100%;
 }
 
 @media screen and (max-width: 1600px) {

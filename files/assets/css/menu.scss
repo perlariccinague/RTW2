@@ -173,6 +173,11 @@
   padding-bottom: 10px;
 }
 
+.navigation-left ul li:nth-child(4) {
+  border-bottom: 1px solid white;
+  padding-bottom: 13px;
+}
+
 @media screen and (max-width: 1025px) {
 
   .mobile_menu .header-top .header-teaser {
@@ -185,11 +190,14 @@
     }
   }
 
-  .menu-list-desktop {
+  /*.menu-list-desktop {
     display: none;
   }
  .mod_navigation-mobile  {
     display: block;
+  }*/
+  .navigation-left h2, .navigation-middle h2, .navigation-right h2 {
+    margin-left: 0;
   }
   .mobile_menu .inner .header .header-bottom {
     margin-top: 40px;
@@ -247,6 +255,10 @@
     .menu-bottom {
       margin: 50px auto;
     }
+  }
+
+  .navigation-left ul li {
+    padding-left: 17px;
   }
 }
 

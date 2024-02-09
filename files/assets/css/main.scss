@@ -337,7 +337,7 @@
 }
 #main .mod_eventlist .berufsmessen a {
   text-decoration:none;
-  color:#d63b95;
+  color:#dd0260;
 }
 #main .mod_newslist p.more a,
 #main .mod_eventlist p.more a {
@@ -349,7 +349,7 @@
 }
 #main .mod_eventlist .berufsmessen p.more a {
   text-decoration:none;
-  color:#d63b95;
+  color:#dd0260;
   text-transform: uppercase;
   font-size: 0.8em;
   font-weight: 400;
@@ -391,19 +391,7 @@
   padding-top: 4px;
 }
 #main .event.berufsmessen p time {
-  background-color: #d63b95;
-}
-#main .event.fachmessen p time {
-  background-color:#002d5c;
-  font-size:.8em;
-  text-decoration:none;
-  color:#fff;
-  font-weight: 500;
-  padding-bottom: 4px;
-  display: inline;
-  padding-left: 6px;
-  padding-right: 6px;
-  padding-top: 4px;
+  background-color: #dd0260;
 }
 #main .mod_calendar table.calendar {
   width: 100%;
@@ -448,15 +436,6 @@
   margin-top: 10px;
   text-align: left;
 }
-#main .mod_calendar table.calendar td.days .event.fachmessen a {
-  font:1em 'Open Sans',sans-serif;
-  text-decoration:none;
-  color:#fff;
-  display: block;
-  padding: 5px 3px;
-  background-color: rgb(0, 45, 92);
-  font-weight: 300;
-}
 #main .mod_calendar table.calendar td.days .event.berufsmessen a,
 #main .mod_calendar table.calendar td.days .event.upcoming a,
 #main .mod_calendar table.calendar td.days .event.bygone a{
@@ -471,7 +450,7 @@
 
 
 #main .mod_calendar table.calendar td.days .event.berufsmessen a {
-  background-color: #d63b95;
+  background-color: #dd0260;
 }
 
 #main .mod_calendar table.calendar th.head.current {
@@ -558,11 +537,6 @@
   background-color:#009ee3;
   width: 49%;
   margin-right: 2%;
-}
-#main .mod_tagcloud li.Fachmessen {
-  background-color:#002d5c;
-  width: 49%;
-  margin-right: 0%;
 }
 #main .mod_tagcloud .reset {
   text-align: right;
@@ -1505,6 +1479,36 @@ img.whatsapp-link-footer {
 
 .ui-slider-horizontal .ui-slider-handle {
   top: -0.7em !important;
+}
+
+#career-events {
+  .event {
+    &:not(.berufsmessen) {
+      display: none;
+    }
+  }
+  .layout_teaser {
+    &:not(.berufsmessen) {
+      display: none;
+    }
+  }
+}
+
+#company-events {
+  .event {
+    &.berufsmessen {
+      display: none;
+    }
+  }
+  .layout_teaser {
+    &.berufsmessen {
+      display: none;
+    }
+  }
+}
+
+.ce_player video {
+  width: 100%;
 }
 
 @media screen and (max-width: 1390px) {
